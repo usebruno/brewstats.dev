@@ -1,4 +1,4 @@
-# brewstats
+# 🍺 brewstats
 
 Track and compare Homebrew installation trends for casks and formulae.
 
