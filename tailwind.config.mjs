@@ -9,7 +9,10 @@ export default {
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        primary: '#e4ae49',
+        primary: {
+          DEFAULT: '#d37f17',
+          dark: '#e4ae49',
+        },
         brew: {
           // Dark mode
           dark: {
