@@ -1,0 +1,45 @@
+name: Fetch Weekly Stats
+
+on:
+  schedule:
+    - cron: '0 12 * * 0' # Every Sunday at 12:00 UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-stats:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch stats
+        run: node scripts/fetch-stats.js
+        env:
+          FORCE_RUN: true
+
+      - name: Compile stats
+        run: node scripts/compile-stats.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats/ public/stats/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update weekly brew install stats $(date +%Y-%m-%d)"
+            git push
+          fi

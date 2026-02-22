@@ -141,10 +141,11 @@ async function fetchSource(source, currentDate) {
 // =============================================================================
 
 async function main() {
-  // Only run on Sundays (weekly fetch)
-  if (!isSunday()) {
+  // Only run on Sundays (weekly fetch), unless FORCE_RUN is set
+  if (!isSunday() && !process.env.FORCE_RUN) {
     console.log('Skipping: This script only runs on Sundays.');
     console.log(`Today is ${new Date().toLocaleDateString('en-US', { weekday: 'long' })}.`);
+    console.log('Set FORCE_RUN=true to override.');
     return;
   }
 
