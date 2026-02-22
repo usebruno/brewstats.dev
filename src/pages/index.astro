@@ -1,0 +1,825 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Brewstats - Homebrew Cask Install Trends">
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-brew-light-border dark:border-brew-dark-border">
+      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🍺</span>
+          <h1 class="text-xl font-semibold tracking-tight">
+            brew<span class="text-primary">stats</span>
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- Theme Toggle -->
+          <button 
+            id="theme-toggle"
+            class="p-2 rounded-lg bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border
+                   hover:border-primary transition-colors"
+            aria-label="Toggle theme"
+          >
+            <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          <a 
+            href="https://github.com" 
+            target="_blank"
+            class="text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text transition-colors text-sm"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-6xl mx-auto px-6 py-10 w-full">
+      <!-- Search Section -->
+      <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-2">Compare Homebrew Casks</h2>
+        <p class="text-brew-light-muted dark:text-brew-dark-muted mb-6">
+          Track and compare installation trends for macOS apps
+        </p>
+        
+        <!-- Search Input -->
+        <div class="relative">
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Search for apps... (e.g. bruno, cursor, 1password)"
+            class="w-full bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border 
+                   rounded-xl px-5 py-4 text-lg placeholder:text-brew-light-muted dark:placeholder:text-brew-dark-muted 
+                   focus:outline-none focus:border-primary transition-colors font-mono"
+            autocomplete="off"
+          />
+          <div 
+            id="search-suggestions"
+            class="absolute top-full left-0 right-0 mt-2 bg-brew-light-card dark:bg-brew-dark-card 
+                   border border-brew-light-border dark:border-brew-dark-border 
+                   rounded-xl overflow-hidden shadow-2xl hidden z-50 max-h-80 overflow-y-auto"
+          >
+          </div>
+        </div>
+
+        <!-- Selected Apps (Tags) -->
+        <div id="selected-apps" class="flex flex-wrap gap-2 mt-4">
+        </div>
+      </section>
+
+      <!-- Period Toggle & Chart Type -->
+      <section class="mb-6 flex items-center justify-between flex-wrap gap-4">
+        <!-- Period Toggle -->
+        <div class="inline-flex bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-lg p-1">
+          <button 
+            data-period="30d" 
+            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
+                   bg-primary text-brew-dark-bg"
+          >
+            30 Days
+          </button>
+          <button 
+            data-period="90d" 
+            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
+                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
+          >
+            90 Days
+          </button>
+          <button 
+            data-period="365d" 
+            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
+                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
+          >
+            365 Days
+          </button>
+        </div>
+
+        <!-- Chart Type Toggle -->
+        <div class="inline-flex bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-lg p-1">
+          <button 
+            data-chart-type="line" 
+            class="chart-type-btn px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2
+                   bg-primary text-brew-dark-bg"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4v16" />
+            </svg>
+            Line
+          </button>
+          <button 
+            data-chart-type="pie" 
+            class="chart-type-btn px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2
+                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+            </svg>
+            Pie
+          </button>
+        </div>
+      </section>
+
+      <!-- Chart Container -->
+      <section class="bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-2xl p-6 mb-8">
+        <div id="chart-container" class="h-[400px] w-full relative">
+          <div id="chart-placeholder" class="h-full flex items-center justify-center text-brew-light-muted dark:text-brew-dark-muted">
+            <div class="text-center">
+              <div class="text-4xl mb-4">📊</div>
+              <p>Search for an app to see its install trends</p>
+            </div>
+          </div>
+          <canvas id="chart" class="hidden"></canvas>
+        </div>
+      </section>
+
+      <!-- Stats Table -->
+      <section id="stats-table" class="hidden">
+        <h3 class="text-lg font-semibold mb-4">Statistics</h3>
+        <div class="bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-xl overflow-hidden">
+          <table class="w-full">
+            <thead class="border-b border-brew-light-border dark:border-brew-dark-border">
+              <tr class="text-left text-brew-light-muted dark:text-brew-dark-muted text-sm">
+                <th class="px-5 py-3 font-medium">App</th>
+                <th class="px-5 py-3 font-medium text-right">Latest</th>
+                <th class="px-5 py-3 font-medium text-right">Change</th>
+                <th class="px-5 py-3 font-medium text-right">% Change</th>
+              </tr>
+            </thead>
+            <tbody id="stats-body">
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-brew-light-border dark:border-brew-dark-border py-6">
+      <div class="max-w-6xl mx-auto px-6 text-center text-brew-light-muted dark:text-brew-dark-muted text-sm">
+        Data sourced from <a href="https://formulae.brew.sh/analytics/" class="text-primary hover:underline" target="_blank">Homebrew Analytics</a>
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<script>
+  import { Chart, registerables } from 'chart.js';
+  
+  // Register Chart.js components
+  Chart.register(...registerables);
+
+  // App colors for chart lines
+  const CHART_COLORS = [
+    '#e4ae49', // primary (gold)
+    '#3b82f6', // blue
+    '#10b981', // emerald
+    '#ef4444', // red
+    '#8b5cf6', // violet
+    '#ec4899', // pink
+    '#06b6d4', // cyan
+    '#f97316', // orange
+  ];
+
+  // State
+  let statsData: Record<string, any> = {};
+  let currentPeriod = '30d';
+  let currentChartType: 'line' | 'pie' = 'line';
+  let selectedApps: string[] = [];
+  let chart: Chart | null = null;
+  let allAppNames: string[] = [];
+  let isDarkMode = document.documentElement.classList.contains('dark');
+
+  // DOM Elements
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const searchSuggestions = document.getElementById('search-suggestions')!;
+  const selectedAppsContainer = document.getElementById('selected-apps')!;
+  const chartCanvas = document.getElementById('chart') as HTMLCanvasElement;
+  const chartPlaceholder = document.getElementById('chart-placeholder')!;
+  const statsTable = document.getElementById('stats-table')!;
+  const statsBody = document.getElementById('stats-body')!;
+  const periodButtons = document.querySelectorAll('.period-btn');
+  const chartTypeButtons = document.querySelectorAll('.chart-type-btn');
+  const themeToggle = document.getElementById('theme-toggle')!;
+
+  // Setup theme toggle immediately (don't wait for data to load)
+  themeToggle.addEventListener('click', () => {
+    isDarkMode = !isDarkMode;
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    updateChartTheme();
+  });
+
+  // URL query param helpers
+  function getUrlParams(): { apps: string[], period: string | null, chart: string | null } {
+    const params = new URLSearchParams(window.location.search);
+    const apps = params.get('apps');
+    return {
+      apps: apps ? apps.split(',').filter(a => a.trim()) : [],
+      period: params.get('period'),
+      chart: params.get('chart'),
+    };
+  }
+
+  function updateUrl() {
+    const url = new URL(window.location.href);
+    
+    // Apps
+    if (selectedApps.length > 0) {
+      url.searchParams.set('apps', selectedApps.join(','));
+    } else {
+      url.searchParams.delete('apps');
+    }
+    
+    // Period (only set if not default)
+    if (currentPeriod !== '30d') {
+      url.searchParams.set('period', currentPeriod);
+    } else {
+      url.searchParams.delete('period');
+    }
+    
+    // Chart type (only set if not default)
+    if (currentChartType !== 'line') {
+      url.searchParams.set('chart', currentChartType);
+    } else {
+      url.searchParams.delete('chart');
+    }
+    
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  // Initialize
+  async function init() {
+    // Get URL params first
+    const urlParams = getUrlParams();
+    
+    // Restore period from URL (before loading data)
+    if (urlParams.period && ['30d', '90d', '365d'].includes(urlParams.period)) {
+      currentPeriod = urlParams.period;
+      // Update period button styles
+      periodButtons.forEach(btn => {
+        const btnPeriod = (btn as HTMLElement).dataset.period;
+        if (btnPeriod === currentPeriod) {
+          btn.classList.add('bg-primary', 'text-brew-dark-bg');
+          btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+        } else {
+          btn.classList.remove('bg-primary', 'text-brew-dark-bg');
+          btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+        }
+      });
+    }
+    
+    // Restore chart type from URL
+    if (urlParams.chart && ['line', 'pie'].includes(urlParams.chart)) {
+      currentChartType = urlParams.chart as 'line' | 'pie';
+      // Update chart type button styles
+      chartTypeButtons.forEach(btn => {
+        const btnType = (btn as HTMLElement).dataset.chartType;
+        if (btnType === currentChartType) {
+          btn.classList.add('bg-primary', 'text-brew-dark-bg');
+          btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+        } else {
+          btn.classList.remove('bg-primary', 'text-brew-dark-bg');
+          btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+        }
+      });
+    }
+    
+    // Load initial data
+    await loadPeriodData('30d');
+    
+    // Extract all app names for search
+    allAppNames = Object.keys(statsData['30d']?.apps || {}).sort();
+    
+    // Restore apps from URL query params
+    for (const app of urlParams.apps) {
+      if (allAppNames.includes(app) && !selectedApps.includes(app) && selectedApps.length < 8) {
+        selectedApps.push(app);
+      }
+    }
+    
+    // If apps were restored, render them
+    if (selectedApps.length > 0) {
+      renderSelectedApps();
+      updateChart();
+      updateStatsTable();
+    }
+    
+    // Preload other periods
+    loadPeriodData('90d');
+    loadPeriodData('365d');
+    
+    // Setup event listeners
+    setupEventListeners();
+  }
+
+  async function loadPeriodData(period: string) {
+    if (statsData[period]) return;
+    
+    try {
+      const response = await fetch(`/stats/${period}.json`);
+      statsData[period] = await response.json();
+    } catch (error) {
+      console.error(`Failed to load ${period} data:`, error);
+    }
+  }
+
+  function getChartOptions(): any {
+    const gridColor = isDarkMode ? '#333333' : '#e5e5e5';
+    const textColor = isDarkMode ? '#888888' : '#666666';
+    
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          labels: {
+            color: textColor,
+            font: {
+              family: 'DM Sans, system-ui, sans-serif',
+              size: 12,
+            },
+            usePointStyle: true,
+            pointStyle: 'circle',
+          },
+        },
+        tooltip: {
+          backgroundColor: isDarkMode ? '#242424' : '#ffffff',
+          titleColor: isDarkMode ? '#e4e4e7' : '#1a1a1a',
+          bodyColor: isDarkMode ? '#888888' : '#666666',
+          borderColor: gridColor,
+          borderWidth: 1,
+          padding: 12,
+          cornerRadius: 8,
+          titleFont: {
+            family: 'DM Sans, system-ui, sans-serif',
+            size: 14,
+            weight: '600',
+          },
+          bodyFont: {
+            family: 'JetBrains Mono, monospace',
+            size: 12,
+          },
+          callbacks: {
+            label: function(context: any) {
+              const value = context.parsed.y;
+              const formatted = value >= 1000 ? (value / 1000).toFixed(1) + 'K' : value;
+              return `${context.dataset.label}: ${formatted}`;
+            }
+          }
+        },
+      },
+      scales: {
+        x: {
+          grid: {
+            color: gridColor,
+            drawBorder: false,
+          },
+          ticks: {
+            color: textColor,
+            font: {
+              family: 'DM Sans, system-ui, sans-serif',
+              size: 11,
+            },
+            maxRotation: 0,
+            maxTicksLimit: 8,
+          },
+        },
+        y: {
+          grid: {
+            color: gridColor,
+            drawBorder: false,
+          },
+          ticks: {
+            color: textColor,
+            font: {
+              family: 'JetBrains Mono, monospace',
+              size: 11,
+            },
+            callback: function(value: number) {
+              if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
+              if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
+              return value;
+            }
+          },
+        },
+      },
+    };
+  }
+
+  function updateChartTheme() {
+    if (!chart) return;
+    chart.options = currentChartType === 'line' ? getChartOptions() : getPieChartOptions();
+    chart.update();
+  }
+
+  function setupEventListeners() {
+    // Search input
+    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('focus', handleSearch);
+    searchInput.addEventListener('keydown', handleSearchKeydown);
+    
+    // Click outside to close suggestions
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target as Node) && !searchSuggestions.contains(e.target as Node)) {
+        searchSuggestions.classList.add('hidden');
+      }
+    });
+
+    // Period buttons
+    periodButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const period = (btn as HTMLElement).dataset.period!;
+        switchPeriod(period);
+      });
+    });
+
+    // Chart type buttons
+    chartTypeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const chartType = (btn as HTMLElement).dataset.chartType as 'line' | 'pie';
+        switchChartType(chartType);
+      });
+    });
+  }
+
+  function switchChartType(chartType: 'line' | 'pie') {
+    currentChartType = chartType;
+    
+    // Update button styles
+    chartTypeButtons.forEach(btn => {
+      const btnType = (btn as HTMLElement).dataset.chartType;
+      if (btnType === chartType) {
+        btn.classList.add('bg-primary', 'text-brew-dark-bg');
+        btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+      } else {
+        btn.classList.remove('bg-primary', 'text-brew-dark-bg');
+        btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+      }
+    });
+
+    updateChart();
+    updateUrl();
+  }
+
+  function handleSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    
+    if (!query) {
+      searchSuggestions.classList.add('hidden');
+      return;
+    }
+
+    // Filter apps matching query
+    const matches = allAppNames
+      .filter(name => name.toLowerCase().includes(query) && !selectedApps.includes(name))
+      .slice(0, 10);
+
+    if (matches.length === 0) {
+      searchSuggestions.classList.add('hidden');
+      return;
+    }
+
+    // Render suggestions
+    searchSuggestions.innerHTML = matches.map(name => `
+      <button 
+        class="w-full px-5 py-3 text-left hover:bg-brew-light-border dark:hover:bg-brew-dark-border transition-colors font-mono text-sm
+               flex items-center justify-between"
+        data-app="${name}"
+      >
+        <span>${highlightMatch(name, query)}</span>
+        <span class="text-brew-light-muted dark:text-brew-dark-muted text-xs">
+          ${formatNumber(getLatestCount(name))} installs
+        </span>
+      </button>
+    `).join('');
+
+    // Add click handlers
+    searchSuggestions.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const app = (btn as HTMLElement).dataset.app!;
+        addApp(app);
+      });
+    });
+
+    searchSuggestions.classList.remove('hidden');
+  }
+
+  function handleSearchKeydown(e: KeyboardEvent) {
+    if (e.key === 'Enter') {
+      const firstSuggestion = searchSuggestions.querySelector('button');
+      if (firstSuggestion) {
+        const app = (firstSuggestion as HTMLElement).dataset.app!;
+        addApp(app);
+      }
+    }
+  }
+
+  function highlightMatch(text: string, query: string): string {
+    const index = text.toLowerCase().indexOf(query.toLowerCase());
+    if (index === -1) return text;
+    
+    return text.slice(0, index) + 
+           `<span class="text-primary">${text.slice(index, index + query.length)}</span>` +
+           text.slice(index + query.length);
+  }
+
+  function getLatestCount(appName: string): number {
+    const data = statsData[currentPeriod];
+    if (!data?.apps?.[appName]) return 0;
+    const counts = data.apps[appName];
+    return counts[counts.length - 1] || 0;
+  }
+
+  function formatNumber(num: number): string {
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+    return num.toString();
+  }
+
+  function addApp(appName: string) {
+    if (selectedApps.includes(appName) || selectedApps.length >= 8) return;
+    
+    selectedApps.push(appName);
+    searchInput.value = '';
+    searchSuggestions.classList.add('hidden');
+    
+    renderSelectedApps();
+    updateChart();
+    updateStatsTable();
+    updateUrl();
+  }
+
+  function removeApp(appName: string) {
+    selectedApps = selectedApps.filter(a => a !== appName);
+    renderSelectedApps();
+    updateChart();
+    updateStatsTable();
+    updateUrl();
+  }
+
+  function renderSelectedApps() {
+    selectedAppsContainer.innerHTML = selectedApps.map((app, index) => `
+      <span 
+        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono"
+        style="background: ${CHART_COLORS[index % CHART_COLORS.length]}20; 
+               border: 1px solid ${CHART_COLORS[index % CHART_COLORS.length]}40;
+               color: ${CHART_COLORS[index % CHART_COLORS.length]}"
+      >
+        ${app}
+        <button 
+          class="hover:opacity-70 transition-opacity"
+          data-remove="${app}"
+        >
+          ✕
+        </button>
+      </span>
+    `).join('');
+
+    // Add remove handlers
+    selectedAppsContainer.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const app = (btn as HTMLElement).dataset.remove!;
+        removeApp(app);
+      });
+    });
+  }
+
+  function switchPeriod(period: string) {
+    currentPeriod = period;
+    
+    // Update button styles
+    periodButtons.forEach(btn => {
+      const btnPeriod = (btn as HTMLElement).dataset.period;
+      if (btnPeriod === period) {
+        btn.classList.add('bg-primary', 'text-brew-dark-bg');
+        btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+      } else {
+        btn.classList.remove('bg-primary', 'text-brew-dark-bg');
+        btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
+      }
+    });
+
+    updateChart();
+    updateStatsTable();
+    updateUrl();
+  }
+
+  function updateChart() {
+    if (selectedApps.length === 0) {
+      chartPlaceholder.classList.remove('hidden');
+      chartCanvas.classList.add('hidden');
+      
+      // Destroy existing chart
+      if (chart) {
+        chart.destroy();
+        chart = null;
+      }
+      return;
+    }
+
+    chartPlaceholder.classList.add('hidden');
+    chartCanvas.classList.remove('hidden');
+
+    const data = statsData[currentPeriod];
+    if (!data) return;
+
+    // Destroy existing chart before creating new one
+    if (chart) {
+      chart.destroy();
+    }
+
+    if (currentChartType === 'line') {
+      // Build datasets for line chart
+      const datasets = selectedApps.map((appName, index) => {
+        const appData = data.apps[appName];
+        const color = CHART_COLORS[index % CHART_COLORS.length];
+        
+        return {
+          label: appName,
+          data: appData || [],
+          borderColor: color,
+          backgroundColor: color + '20',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: color,
+          pointHoverBorderColor: isDarkMode ? '#242424' : '#ffffff',
+          pointHoverBorderWidth: 2,
+          tension: 0.3,
+          fill: false,
+        };
+      });
+
+      // Create line chart
+      chart = new Chart(chartCanvas, {
+        type: 'line',
+        data: {
+          labels: data.dates,
+          datasets: datasets,
+        },
+        options: getChartOptions(),
+      });
+    } else {
+      // Build data for pie chart (using latest counts), sorted by count descending
+      const pieItems = selectedApps.map((appName, index) => {
+        const appData = data.apps[appName];
+        const latestCount = appData ? appData[appData.length - 1] || 0 : 0;
+        return {
+          name: appName,
+          count: latestCount,
+          color: CHART_COLORS[index % CHART_COLORS.length], // Keep original color assignment
+        };
+      }).sort((a, b) => b.count - a.count); // Sort by count descending
+
+      // Create pie chart
+      chart = new Chart(chartCanvas, {
+        type: 'pie',
+        data: {
+          labels: pieItems.map(item => item.name),
+          datasets: [{
+            data: pieItems.map(item => item.count),
+            backgroundColor: pieItems.map(item => item.color),
+            borderColor: isDarkMode ? '#242424' : '#ffffff',
+            borderWidth: 2,
+            hoverOffset: 8,
+          }],
+        },
+        options: getPieChartOptions(),
+      });
+    }
+  }
+
+  function getPieChartOptions(): any {
+    const textColor = isDarkMode ? '#e4e4e7' : '#1a1a1a';
+    const mutedColor = isDarkMode ? '#888888' : '#666666';
+    
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            color: textColor,
+            font: {
+              family: 'JetBrains Mono, monospace',
+              size: 12,
+            },
+            usePointStyle: true,
+            pointStyle: 'circle',
+            padding: 16,
+            generateLabels: function(chart: any) {
+              const data = chart.data;
+              if (data.labels.length && data.datasets.length) {
+                const dataset = data.datasets[0];
+                const total = dataset.data.reduce((a: number, b: number) => a + b, 0);
+                const labelColor = document.documentElement.classList.contains('dark') ? '#e4e4e7' : '#1a1a1a';
+                
+                return data.labels.map((label: string, i: number) => {
+                  const value = dataset.data[i];
+                  const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0';
+                  
+                  return {
+                    text: `${label} (${percentage}%)`,
+                    fillStyle: dataset.backgroundColor[i],
+                    strokeStyle: dataset.borderColor,
+                    lineWidth: dataset.borderWidth,
+                    fontColor: labelColor,
+                    hidden: false,
+                    index: i,
+                    pointStyle: 'circle',
+                  };
+                });
+              }
+              return [];
+            },
+          },
+        },
+        tooltip: {
+          backgroundColor: isDarkMode ? '#242424' : '#ffffff',
+          titleColor: textColor,
+          bodyColor: mutedColor,
+          borderColor: isDarkMode ? '#333333' : '#e5e5e5',
+          borderWidth: 1,
+          padding: 12,
+          cornerRadius: 8,
+          titleFont: {
+            family: 'DM Sans, system-ui, sans-serif',
+            size: 14,
+            weight: '600',
+          },
+          bodyFont: {
+            family: 'JetBrains Mono, monospace',
+            size: 12,
+          },
+          callbacks: {
+            label: function(context: any) {
+              const value = context.parsed;
+              const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0);
+              const percentage = ((value / total) * 100).toFixed(1);
+              const formatted = value >= 1000 ? (value / 1000).toFixed(1) + 'K' : value;
+              return `${formatted} installs (${percentage}%)`;
+            }
+          }
+        },
+      },
+    };
+  }
+
+  function updateStatsTable() {
+    if (selectedApps.length === 0) {
+      statsTable.classList.add('hidden');
+      return;
+    }
+
+    statsTable.classList.remove('hidden');
+
+    const data = statsData[currentPeriod];
+    if (!data) return;
+
+    statsBody.innerHTML = selectedApps.map((app, index) => {
+      const appData = data.apps[app];
+      if (!appData) return '';
+
+      const latest = appData[appData.length - 1] || 0;
+      const first = appData[0] || 0;
+      const change = latest - first;
+      const percentChange = first > 0 ? ((change / first) * 100).toFixed(1) : '0';
+      const color = CHART_COLORS[index % CHART_COLORS.length];
+
+      return `
+        <tr class="border-b border-brew-light-border dark:border-brew-dark-border last:border-0">
+          <td class="px-5 py-4">
+            <span class="font-mono flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full" style="background: ${color}"></span>
+              ${app}
+            </span>
+          </td>
+          <td class="px-5 py-4 text-right font-mono">${formatNumber(latest)}</td>
+          <td class="px-5 py-4 text-right font-mono ${change >= 0 ? 'text-emerald-500' : 'text-red-500'}">
+            ${change >= 0 ? '+' : ''}${formatNumber(change)}
+          </td>
+          <td class="px-5 py-4 text-right font-mono ${change >= 0 ? 'text-emerald-500' : 'text-red-500'}">
+            ${change >= 0 ? '+' : ''}${percentChange}%
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // Start the app
+  init();
+</script>
