@@ -1,5 +1,5 @@
 {
-  "nextId": 8178,
+  "nextId": 8203,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8178,6 +8178,31 @@
     "xunfeitingjian": "1fee",
     "youll-never-take-me-alive": "1fef",
     "zen-browser": "1ff0",
-    "zen-browser@twilight": "1ff1"
+    "zen-browser@twilight": "1ff1",
+    "bettercapture": "1ff2",
+    "bingpaper-desktop": "1ff3",
+    "calendr": "1ff4",
+    "cmd-eikana-arm64": "1ff5",
+    "cmux": "1ff6",
+    "code-notes": "1ff7",
+    "connectiq-sdk-manager": "1ff8",
+    "dominion525-cmd-eikana": "1ff9",
+    "fabric": "1ffa",
+    "fabric-app": "1ffb",
+    "ferdium@nightly": "1ffc",
+    "font-datatype": "1ffd",
+    "font-gmarket-sans": "1ffe",
+    "font-iosevka-charon": "1fff",
+    "font-iosevka-charon-mono": "2000",
+    "iina@nightly": "2001",
+    "itsytv": "2002",
+    "keepassXC": "2003",
+    "kotlin-lsp": "2004",
+    "macusb": "2005",
+    "openwhispr": "2006",
+    "pika@beta": "2007",
+    "quicklookapk": "2008",
+    "stoat": "2009",
+    "valeronoi": "200a"
   }
 }
