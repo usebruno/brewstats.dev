@@ -1,5 +1,5 @@
 {
-  "nextId": 8203,
+  "nextId": 8225,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8203,6 +8203,28 @@
     "pika@beta": "2007",
     "quicklookapk": "2008",
     "stoat": "2009",
-    "valeronoi": "200a"
+    "valeronoi": "200a",
+    "alire": "200b",
+    "chunk": "200c",
+    "cronnix": "200d",
+    "font-ghana-chocolate": "200e",
+    "font-ghanachocolate": "200f",
+    "font-miranda-sans": "2010",
+    "giada": "2011",
+    "googledrivesync": "2012",
+    "image-tool": "2013",
+    "ltx": "2014",
+    "mame": "2015",
+    "memory-meter-3": "2016",
+    "paseo": "2017",
+    "prayertimes": "2018",
+    "rabbitmqadmin-ng": "2019",
+    "spokenly": "201a",
+    "spyder-x2": "201b",
+    "t3-code": "201c",
+    "tabbit-browser": "201d",
+    "tablepro": "201e",
+    "tenor": "201f",
+    "vcmi": "2020"
   }
 }
