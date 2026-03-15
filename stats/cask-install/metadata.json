@@ -1,5 +1,5 @@
 {
-  "nextId": 8225,
+  "nextId": 8239,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8225,6 +8225,20 @@
     "tabbit-browser": "201d",
     "tablepro": "201e",
     "tenor": "201f",
-    "vcmi": "2020"
+    "vcmi": "2020",
+    "clearance": "2021",
+    "dbeaverauto": "2022",
+    "fenix": "2023",
+    "gg-cli": "2024",
+    "gram": "2025",
+    "intiface-central": "2026",
+    "isteg": "2027",
+    "ltx-desktop": "2028",
+    "postgres-app": "2029",
+    "rapid-raw": "202a",
+    "seamly2d": "202b",
+    "tencent-ugit": "202c",
+    "wowup-cf": "202d",
+    "x-air-edit": "202e"
   }
 }
