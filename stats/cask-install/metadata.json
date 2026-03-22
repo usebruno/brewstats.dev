@@ -1,5 +1,5 @@
 {
-  "nextId": 8239,
+  "nextId": 8253,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8239,6 +8239,20 @@
     "seamly2d": "202b",
     "tencent-ugit": "202c",
     "wowup-cf": "202d",
-    "x-air-edit": "202e"
+    "x-air-edit": "202e",
+    "dbeaverteam": "202f",
+    "dbvr": "2030",
+    "fidelity-trader+": "2031",
+    "fidelity-trader-plus": "2032",
+    "font-selawik": "2033",
+    "infinidream": "2034",
+    "machoexplorer": "2035",
+    "quicklook-video": "2036",
+    "scribus@devel": "2037",
+    "spectra-app": "2038",
+    "supasidebar": "2039",
+    "typeduck": "203a",
+    "ulaa": "203b",
+    "voicemod": "203c"
   }
 }
