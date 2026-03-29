@@ -1,5 +1,5 @@
 {
-  "nextId": 8253,
+  "nextId": 8266,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8253,6 +8253,19 @@
     "supasidebar": "2039",
     "typeduck": "203a",
     "ulaa": "203b",
-    "voicemod": "203c"
+    "voicemod": "203c",
+    "altar-ai": "203d",
+    "clearly": "203e",
+    "font-saira-stencil": "203f",
+    "incident-io": "2040",
+    "mesh": "2041",
+    "nimbalyst": "2042",
+    "notchi": "2043",
+    "nvidia-sync": "2044",
+    "ob-xf": "2045",
+    "plamo-translate": "2046",
+    "sfdx": "2047",
+    "voiden@beta": "2048",
+    "zello": "2049"
   }
 }
