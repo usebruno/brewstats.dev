@@ -1,5 +1,5 @@
 {
-  "nextId": 8266,
+  "nextId": 8288,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8266,6 +8266,28 @@
     "plamo-translate": "2046",
     "sfdx": "2047",
     "voiden@beta": "2048",
-    "zello": "2049"
+    "zello": "2049",
+    "DropBox": "204a",
+    "SiYuan": "204b",
+    "appcode": "204c",
+    "claude-code@latest": "204d",
+    "craft-agents": "204e",
+    "finamp@beta": "204f",
+    "font-bj-cree": "2050",
+    "font-ioskeley-mono": "2051",
+    "font-pragmasevka": "2052",
+    "font-pragmasevska": "2053",
+    "font-strichpunkt-sans": "2054",
+    "forkgram": "2055",
+    "idevice-pair": "2056",
+    "jiba": "2057",
+    "openhantek": "2058",
+    "proton-meet": "2059",
+    "radial": "205a",
+    "remanager": "205b",
+    "super": "205c",
+    "vibeproxy": "205d",
+    "wallspace": "205e",
+    "worksheetcrafter": "205f"
   }
 }
