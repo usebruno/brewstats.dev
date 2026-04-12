@@ -1,5 +1,5 @@
 {
-  "nextId": 8288,
+  "nextId": 8316,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8288,6 +8288,34 @@
     "super": "205c",
     "vibeproxy": "205d",
     "wallspace": "205e",
-    "worksheetcrafter": "205f"
+    "worksheetcrafter": "205f",
+    "android-messages": "2060",
+    "anti-macovid": "2061",
+    "appgridmac": "2062",
+    "azure-cli": "2063",
+    "backblaze-restore": "2064",
+    "baoliandeng": "2065",
+    "c9watch": "2066",
+    "cadran": "2067",
+    "cc-switch": "2068",
+    "code-server": "2069",
+    "copilot-language-server": "206a",
+    "dearsql": "206b",
+    "deskflow": "206c",
+    "equilotl": "206d",
+    "eurkey-next": "206e",
+    "hive-app": "206f",
+    "mockphine": "2070",
+    "orchard": "2071",
+    "paper-design": "2072",
+    "rayon": "2073",
+    "rockxy-community": "2074",
+    "rowboat": "2075",
+    "serial-tools": "2076",
+    "siki": "2077",
+    "tablen": "2078",
+    "toland-qlmarkdown": "2079",
+    "vibe-island": "207a",
+    "worksheet-crafter": "207b"
   }
 }

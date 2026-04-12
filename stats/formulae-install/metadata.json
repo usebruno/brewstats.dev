@@ -1,5 +1,5 @@
 {
-  "nextId": 9789,
+  "nextId": 9812,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -9789,6 +9789,29 @@
     "testball_bottle": "2639",
     "tini": "263a",
     "yelp-xsl": "263b",
-    "zerobox": "263c"
+    "zerobox": "263c",
+    "agenthub": "263d",
+    "alacritty-terminal": "263e",
+    "apfel": "263f",
+    "dldfs": "2640",
+    "dsct": "2641",
+    "emacs-native": "2642",
+    "git-custom": "2643",
+    "goenv@2": "2644",
+    "goenv@3": "2645",
+    "ix": "2646",
+    "libheif-plugins": "2647",
+    "lisette": "2648",
+    "maxflow": "2649",
+    "numkong": "264a",
+    "pilotprotocol": "264b",
+    "qoi": "264c",
+    "redis@3.2.1": "264d",
+    "resticprofile": "264e",
+    "rustpython": "264f",
+    "sdl3_mixer": "2650",
+    "wsjtx": "2651",
+    "xhyve": "2652",
+    "xperiential": "2653"
   }
 }
