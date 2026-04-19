@@ -1,5 +1,5 @@
 {
-  "nextId": 8316,
+  "nextId": 8338,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8316,6 +8316,28 @@
     "tablen": "2078",
     "toland-qlmarkdown": "2079",
     "vibe-island": "207a",
-    "worksheet-crafter": "207b"
+    "worksheet-crafter": "207b",
+    "360safe": "207c",
+    "fluidvoice": "207d",
+    "font-bjcree": "207e",
+    "google-gemini": "207f",
+    "intellij-idea-oss": "2080",
+    "ishowu": "2081",
+    "koharu": "2082",
+    "macshot": "2083",
+    "motrix-next": "2084",
+    "origami": "2085",
+    "pluralplay-flclashx": "2086",
+    "puremac": "2087",
+    "renameclick": "2088",
+    "rockxy": "2089",
+    "sharefile": "208a",
+    "t3-code@nightly": "208b",
+    "ua-connect": "208c",
+    "unblocked": "208d",
+    "vibing": "208e",
+    "wondershare-edrawmax-v15": "208f",
+    "wondershare-edrawproject-v3": "2090",
+    "xdeck": "2091"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "nextId": 9812,
+  "nextId": 9832,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -9812,6 +9812,26 @@
     "sdl3_mixer": "2650",
     "wsjtx": "2651",
     "xhyve": "2652",
-    "xperiential": "2653"
+    "xperiential": "2653",
+    "archifind": "2654",
+    "arf": "2655",
+    "cc-connect": "2656",
+    "cloudstack-cloudmonkey": "2657",
+    "dexter-lsp": "2658",
+    "digestif": "2659",
+    "motif": "265a",
+    "nxxx": "265b",
+    "openssl@4": "265c",
+    "pocket-id": "265d",
+    "rtx": "265e",
+    "sheen-bidi": "265f",
+    "snip": "2660",
+    "socktainer": "2661",
+    "telemt": "2662",
+    "tree-sitter@0.22": "2663",
+    "v8@12": "2664",
+    "vlc-qt": "2665",
+    "xchm": "2666",
+    "zig@0.15": "2667"
   }
 }
