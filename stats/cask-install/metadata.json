@@ -1,5 +1,5 @@
 {
-  "nextId": 8338,
+  "nextId": 8358,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8338,6 +8338,26 @@
     "vibing": "208e",
     "wondershare-edrawmax-v15": "208f",
     "wondershare-edrawproject-v3": "2090",
-    "xdeck": "2091"
+    "xdeck": "2091",
+    "brave-origin@beta": "2092",
+    "brave-origin@nightly": "2093",
+    "cavalry": "2094",
+    "claude-prism": "2095",
+    "doubletwist": "2096",
+    "font-estedad": "2097",
+    "ghostpepper": "2098",
+    "gopher64": "2099",
+    "helium-browser-test": "209a",
+    "hop": "209b",
+    "iplay": "209c",
+    "lite-edit": "209d",
+    "mujoco": "209e",
+    "muse-hub": "209f",
+    "open-webui": "20a0",
+    "paranoia-file-text-encryption": "20a1",
+    "rustcast": "20a2",
+    "server-box": "20a3",
+    "tolaria": "20a4",
+    "vibe-notch": "20a5"
   }
 }
