@@ -1,5 +1,5 @@
 {
-  "nextId": 8358,
+  "nextId": 8369,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8358,6 +8358,17 @@
     "rustcast": "20a2",
     "server-box": "20a3",
     "tolaria": "20a4",
-    "vibe-notch": "20a5"
+    "vibe-notch": "20a5",
+    "buhobarx": "20a6",
+    "eez-studio": "20a7",
+    "hnefatafl-copenhagen": "20a8",
+    "input0": "20a9",
+    "mister-plimsoll": "20aa",
+    "notepad++": "20ab",
+    "openusage": "20ac",
+    "screenkite": "20ad",
+    "segger-embedded-studio": "20ae",
+    "wox": "20af",
+    "yakit": "20b0"
   }
 }
