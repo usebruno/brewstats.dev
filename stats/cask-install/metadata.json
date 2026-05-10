@@ -1,5 +1,5 @@
 {
-  "nextId": 8369,
+  "nextId": 8389,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8369,6 +8369,26 @@
     "screenkite": "20ad",
     "segger-embedded-studio": "20ae",
     "wox": "20af",
-    "yakit": "20b0"
+    "yakit": "20b0",
+    "Zotero": "20b1",
+    "astra-music": "20b2",
+    "bambu-studio@beta": "20b3",
+    "cgui-visual": "20b4",
+    "chiri": "20b5",
+    "devin": "20b6",
+    "dhictl": "20b7",
+    "factory": "20b8",
+    "font-akt": "20b9",
+    "font-alien-block": "20ba",
+    "font-finlandica-headline": "20bb",
+    "font-finlandica-text": "20bc",
+    "font-m-plus-u": "20bd",
+    "irpf2026": "20be",
+    "jetbrains-air": "20bf",
+    "manus": "20c0",
+    "mirai": "20c1",
+    "open-webui@alpha": "20c2",
+    "openchamber": "20c3",
+    "whatcable": "20c4"
   }
 }
