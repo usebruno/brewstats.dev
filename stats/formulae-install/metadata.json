@@ -1,5 +1,5 @@
 {
-  "nextId": 9939,
+  "nextId": 9968,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -9939,6 +9939,35 @@
     "tinyauth": "26cf",
     "tinyice": "26d0",
     "vcfanno": "26d1",
-    "vtzero": "26d2"
+    "vtzero": "26d2",
+    "bearing-darwin-arm64": "26d3",
+    "doltlite": "26d4",
+    "epicsbase": "26d5",
+    "esbmc": "26d6",
+    "frobtads": "26d7",
+    "gitpane": "26d8",
+    "herdr": "26d9",
+    "kandev": "26da",
+    "mado": "26db",
+    "maplibre-native": "26dc",
+    "modelica-standard-library": "26dd",
+    "muscle": "26de",
+    "nettle@3": "26df",
+    "photon": "26e0",
+    "photon-cli": "26e1",
+    "phpantom-lsp": "26e2",
+    "phpantom_lsp": "26e3",
+    "ratty": "26e4",
+    "rumoca": "26e5",
+    "seetui": "26e6",
+    "skm": "26e7",
+    "snap-commit": "26e8",
+    "speech": "26e9",
+    "threatdeck": "26ea",
+    "travelshield": "26eb",
+    "tuicr": "26ec",
+    "twitch-follows-gui": "26ed",
+    "velotype": "26ee",
+    "zimpl": "26ef"
   }
 }

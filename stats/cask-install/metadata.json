@@ -1,5 +1,5 @@
 {
-  "nextId": 8389,
+  "nextId": 8412,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8389,6 +8389,29 @@
     "mirai": "20c1",
     "open-webui@alpha": "20c2",
     "openchamber": "20c3",
-    "whatcable": "20c4"
+    "whatcable": "20c4",
+    "agentsview": "20c5",
+    "amore": "20c6",
+    "choragus": "20c7",
+    "duo-desktop": "20c8",
+    "executor": "20c9",
+    "executor-desktop": "20ca",
+    "fresh-general": "20cb",
+    "general-software-fresh": "20cc",
+    "github-copilot-app": "20cd",
+    "notion-cli": "20ce",
+    "notion-cli@beta": "20cf",
+    "obs-virtualcam": "20d0",
+    "openai-codex": "20d1",
+    "openwork": "20d2",
+    "picmal": "20d3",
+    "piliplus": "20d4",
+    "presentify": "20d5",
+    "runtimeviewer": "20d6",
+    "shichizip": "20d7",
+    "silion-motion-sm77x": "20d8",
+    "sshfs-mac": "20d9",
+    "superisland": "20da",
+    "wavlink-wl-ug7701": "20db"
   }
 }
