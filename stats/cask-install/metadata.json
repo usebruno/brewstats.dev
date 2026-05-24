@@ -1,5 +1,5 @@
 {
-  "nextId": 8412,
+  "nextId": 8434,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8412,6 +8412,28 @@
     "silion-motion-sm77x": "20d8",
     "sshfs-mac": "20d9",
     "superisland": "20da",
-    "wavlink-wl-ug7701": "20db"
+    "wavlink-wl-ug7701": "20db",
+    "antigravity-cli": "20dc",
+    "antigravity-ide": "20dd",
+    "exo": "20de",
+    "font-pliant": "20df",
+    "infer": "20e0",
+    "intellij-idea-local": "20e1",
+    "jenkins-menu": "20e2",
+    "keyscreen": "20e3",
+    "macfax": "20e4",
+    "maestri": "20e5",
+    "mole-app": "20e6",
+    "overtone-analyzer": "20e7",
+    "panicmode": "20e8",
+    "pgen": "20e9",
+    "revpdf-editor": "20ea",
+    "rilmazafone": "20eb",
+    "transcribex": "20ec",
+    "trickster": "20ed",
+    "tuna": "20ee",
+    "ummaya": "20ef",
+    "vocevista-video": "20f0",
+    "vocevista-video-pro": "20f1"
   }
 }

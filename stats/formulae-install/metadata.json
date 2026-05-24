@@ -1,5 +1,5 @@
 {
-  "nextId": 9968,
+  "nextId": 9994,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -9968,6 +9968,32 @@
     "tuicr": "26ec",
     "twitch-follows-gui": "26ed",
     "velotype": "26ee",
-    "zimpl": "26ef"
+    "zimpl": "26ef",
+    "aliasman": "26f0",
+    "chunkah": "26f1",
+    "cloudmonkey": "26f2",
+    "codeburn": "26f3",
+    "dz6": "26f4",
+    "elio": "26f5",
+    "erlang@28": "26f6",
+    "glance": "26f7",
+    "ladder": "26f8",
+    "leaf-md": "26f9",
+    "libdbi-drivers": "26fa",
+    "libsmf": "26fb",
+    "libsml": "26fc",
+    "llama-cpp-turbo": "26fd",
+    "mapillary_tools": "26fe",
+    "miasma": "26ff",
+    "nrsc5": "2700",
+    "observal-cli": "2701",
+    "panache": "2702",
+    "quickjs-ng": "2703",
+    "rsstail": "2704",
+    "tagsistant": "2705",
+    "tdf": "2706",
+    "todoist-cli-go": "2707",
+    "vzlogger": "2708",
+    "zerolang": "2709"
   }
 }
