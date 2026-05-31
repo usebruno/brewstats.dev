@@ -1,5 +1,5 @@
 {
-  "nextId": 9994,
+  "nextId": 10023,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -9994,6 +9994,35 @@
     "tdf": "2706",
     "todoist-cli-go": "2707",
     "vzlogger": "2708",
-    "zerolang": "2709"
+    "zerolang": "2709",
+    "brew-pip": "270a",
+    "bumblebee": "270b",
+    "cc-switch-cli": "270c",
+    "claudectl": "270d",
+    "cozyvalues-gen": "270e",
+    "createrepo-rs": "270f",
+    "crossfire-client": "2710",
+    "eas-cli": "2711",
+    "ghcitty": "2712",
+    "k0sctl": "2713",
+    "libar2": "2714",
+    "libblake": "2715",
+    "libredwg": "2716",
+    "linea": "2717",
+    "linsk": "2718",
+    "love": "2719",
+    "mips-linux-gnu-binutils": "271a",
+    "msgvault": "271b",
+    "nexus4": "271c",
+    "pdfclaw": "271d",
+    "quien": "271e",
+    "revelo": "271f",
+    "rmux": "2720",
+    "sanity": "2721",
+    "shipable": "2722",
+    "stoic-phrase": "2723",
+    "sunxi-tools": "2724",
+    "vizb": "2725",
+    "wl-clipboard": "2726"
   }
 }
