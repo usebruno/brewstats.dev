@@ -1,5 +1,5 @@
 {
-  "nextId": 10023,
+  "nextId": 10052,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10023,6 +10023,35 @@
     "stoic-phrase": "2723",
     "sunxi-tools": "2724",
     "vizb": "2725",
-    "wl-clipboard": "2726"
+    "wl-clipboard": "2726",
+    "ansible@13": "2727",
+    "aube": "2728",
+    "avisynthplus": "2729",
+    "caffeine-cli": "272a",
+    "cargo-show-asm": "272b",
+    "cforge": "272c",
+    "concord": "272d",
+    "datui": "272e",
+    "dxc": "272f",
+    "ec": "2730",
+    "ghcid": "2731",
+    "gixy": "2732",
+    "gvproxy": "2733",
+    "hookdeck": "2734",
+    "kimi-code": "2735",
+    "krunkit": "2736",
+    "libbcg729": "2737",
+    "libinotify-kqueue": "2738",
+    "macbee": "2739",
+    "mattpocock-skills": "273a",
+    "miniz": "273b",
+    "php@5.6": "273c",
+    "pitchfork": "273d",
+    "protobuf241": "273e",
+    "rura": "273f",
+    "sdl3_net": "2740",
+    "shader-slang": "2741",
+    "stevenblack-hosts": "2742",
+    "viser": "2743"
   }
 }

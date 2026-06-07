@@ -1,5 +1,5 @@
 {
-  "nextId": 8469,
+  "nextId": 8498,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8469,6 +8469,35 @@
     "tldraw": "2111",
     "upterm": "2112",
     "voicetypr": "2113",
-    "yojam": "2114"
+    "yojam": "2114",
+    "cc-pocket": "2115",
+    "clarc": "2116",
+    "clickshare": "2117",
+    "devin-desktop": "2118",
+    "devin-desktop@next": "2119",
+    "dfu-blaster-pro": "211a",
+    "doubao-ime": "211b",
+    "dwellclick": "211c",
+    "font-geist-pixel": "211d",
+    "font-xiaolai": "211e",
+    "font-xiaolai-mono": "211f",
+    "groove-omnidialer": "2120",
+    "harvest": "2121",
+    "ibm-notifier": "2122",
+    "libresprite": "2123",
+    "macparakeet": "2124",
+    "microsoft-365-copilot": "2125",
+    "microsoft-remote-help": "2126",
+    "mindmanager": "2127",
+    "omlx": "2128",
+    "open-island": "2129",
+    "openlogi": "212a",
+    "power-monitor": "212b",
+    "rcmd": "212c",
+    "shichizip-zs": "212d",
+    "silkypix-developer-studio-se": "212e",
+    "subtitle-master": "212f",
+    "vmlx": "2130",
+    "zsa-navigator": "2131"
   }
 }
