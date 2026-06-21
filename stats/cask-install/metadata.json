@@ -1,5 +1,5 @@
 {
-  "nextId": 8542,
+  "nextId": 8564,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8542,6 +8542,28 @@
     "terax": "215a",
     "tunarr": "215b",
     "utiluti": "215c",
-    "zmk-studio": "215d"
+    "zmk-studio": "215d",
+    "8bitdo-firmware-updater": "215e",
+    "altersend": "215f",
+    "ariax": "2160",
+    "baseline": "2161",
+    "bettercmdtab": "2162",
+    "brave-origin": "2163",
+    "cotypist": "2164",
+    "detexify-next": "2165",
+    "go2tv": "2166",
+    "greensignal": "2167",
+    "kde-connect": "2168",
+    "llama-app": "2169",
+    "navigator": "216a",
+    "open-design": "216b",
+    "palmier-pro": "216c",
+    "quitall": "216d",
+    "radix": "216e",
+    "seekfast": "216f",
+    "supaterm": "2170",
+    "sxitch": "2171",
+    "typewhisper": "2172",
+    "zcode": "2173"
   }
 }
