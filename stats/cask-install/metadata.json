@@ -1,5 +1,5 @@
 {
-  "nextId": 8564,
+  "nextId": 8590,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8564,6 +8564,32 @@
     "supaterm": "2170",
     "sxitch": "2171",
     "typewhisper": "2172",
-    "zcode": "2173"
+    "zcode": "2173",
+    "annotate": "2174",
+    "apfelpad": "2175",
+    "atoll": "2176",
+    "blinkdisk": "2177",
+    "claude-usage-bar": "2178",
+    "codegraph-darwin-arm64": "2179",
+    "dockspace": "217a",
+    "font-geomini": "217b",
+    "font-hibur-mono": "217c",
+    "geolibre": "217d",
+    "godot-re-tools": "217e",
+    "infocert-sign": "217f",
+    "letos": "2180",
+    "lux-cli": "2181",
+    "meetmic": "2182",
+    "meta-quest-remote-desktop": "2183",
+    "meta-quest-remote-desktop-client": "2184",
+    "openhuman": "2185",
+    "openusage@beta": "2186",
+    "platinum-notes": "2187",
+    "pycharm-oss": "2188",
+    "reef": "2189",
+    "snippety": "218a",
+    "tikz-editor": "218b",
+    "turdus-merula": "218c",
+    "valkey-admin": "218d"
   }
 }

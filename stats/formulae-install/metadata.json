@@ -1,5 +1,5 @@
 {
-  "nextId": 10123,
+  "nextId": 10145,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10123,6 +10123,28 @@
     "wattle": "2787",
     "weston": "2788",
     "xalan-c": "2789",
-    "xwpe": "278a"
+    "xwpe": "278a",
+    "advai-cli": "278b",
+    "ants": "278c",
+    "assetkit": "278d",
+    "auth0": "278e",
+    "civetweb": "278f",
+    "clpeak": "2790",
+    "coacd": "2791",
+    "codegraph": "2792",
+    "ctk": "2793",
+    "headroom": "2794",
+    "kompute": "2795",
+    "lazy-tmux": "2796",
+    "llvm-fixed": "2797",
+    "lore": "2798",
+    "omnigent": "2799",
+    "openturns": "279a",
+    "pass-cli": "279b",
+    "slint-compiler": "279c",
+    "slint-cpp": "279d",
+    "sonarqube-cli": "279e",
+    "tmux-fingers": "279f",
+    "tpack": "27a0"
   }
 }
