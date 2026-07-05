@@ -1,5 +1,5 @@
 {
-  "nextId": 8590,
+  "nextId": 8619,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8590,6 +8590,35 @@
     "snippety": "218a",
     "tikz-editor": "218b",
     "turdus-merula": "218c",
-    "valkey-admin": "218d"
+    "valkey-admin": "218d",
+    "adrafinil": "218e",
+    "aside": "218f",
+    "caldigit-usb-hub-support-driver": "2190",
+    "containermanager": "2191",
+    "docky": "2192",
+    "font-caacupe-one": "2193",
+    "gitcomet": "2194",
+    "glaze-raycast": "2195",
+    "gnome": "2196",
+    "handbrakebatch": "2197",
+    "harper-desktop": "2198",
+    "hermes-desktop": "2199",
+    "itsypin": "219a",
+    "libifd-cyberjack": "219b",
+    "lumide": "219c",
+    "muesli": "219d",
+    "onexrayse": "219e",
+    "otty": "219f",
+    "pocket-bard": "21a0",
+    "raycast-glaze": "21a1",
+    "slashy": "21a2",
+    "snapzy": "21a3",
+    "sonarqube-cli": "21a4",
+    "subtitle-studio": "21a5",
+    "tablething": "21a6",
+    "toolhive-studio": "21a7",
+    "uniclipboard": "21a8",
+    "videostream": "21a9",
+    "zush": "21aa"
   }
 }

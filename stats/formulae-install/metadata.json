@@ -1,5 +1,5 @@
 {
-  "nextId": 10145,
+  "nextId": 10171,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10145,6 +10145,32 @@
     "slint-cpp": "279d",
     "sonarqube-cli": "279e",
     "tmux-fingers": "279f",
-    "tpack": "27a0"
+    "tpack": "27a0",
+    "ai-cli": "27a1",
+    "asar": "27a2",
+    "bbrew": "27a3",
+    "betterglobekey": "27a4",
+    "bomctl": "27a5",
+    "cobra": "27a6",
+    "count-focus": "27a7",
+    "cve-bin-tool": "27a8",
+    "epics-base": "27a9",
+    "firejail": "27aa",
+    "guacone": "27ab",
+    "kotofetch": "27ac",
+    "kubectl-klock": "27ad",
+    "librefang": "27ae",
+    "licensee": "27af",
+    "msdf-atlas-gen": "27b0",
+    "msdfgen": "27b1",
+    "odil": "27b2",
+    "oletools": "27b3",
+    "raylib@5.5": "27b4",
+    "sbom-utility": "27b5",
+    "soar": "27b6",
+    "t3-code-cli": "27b7",
+    "vsview": "27b8",
+    "vultr-cli": "27b9",
+    "zero": "27ba"
   }
 }
