@@ -1,5 +1,5 @@
 {
-  "nextId": 8619,
+  "nextId": 8639,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8619,6 +8619,26 @@
     "toolhive-studio": "21a7",
     "uniclipboard": "21a8",
     "videostream": "21a9",
-    "zush": "21aa"
+    "zush": "21aa",
+    "FreeCAD": "21ab",
+    "blinkeye": "21ac",
+    "bosun": "21ad",
+    "chatgpt-classic": "21ae",
+    "clash-mac": "21af",
+    "dnclient-server": "21b0",
+    "font-scoutie-sans": "21b1",
+    "itermcompanion": "21b2",
+    "itsypad": "21b3",
+    "kanary": "21b4",
+    "keeperdb": "21b5",
+    "koreader": "21b6",
+    "mac-sai": "21b7",
+    "macshot-offline": "21b8",
+    "proxybridge": "21b9",
+    "quickapp-studio": "21ba",
+    "siliconscope": "21bb",
+    "step-agent": "21bc",
+    "switchy": "21bd",
+    "vicinae": "21be"
   }
 }
