@@ -1,5 +1,5 @@
 {
-  "nextId": 8639,
+  "nextId": 8661,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8639,6 +8639,28 @@
     "siliconscope": "21bb",
     "step-agent": "21bc",
     "switchy": "21bd",
-    "vicinae": "21be"
+    "vicinae": "21be",
+    "aphera": "21bf",
+    "arcbox": "21c0",
+    "crest": "21c1",
+    "docker-scout": "21c2",
+    "edist": "21c3",
+    "ego-lite": "21c4",
+    "emacs-ns-inline-patch": "21c5",
+    "font-clear-sans": "21c6",
+    "juicy": "21c7",
+    "kelivo": "21c8",
+    "koe": "21c9",
+    "lemonade-server": "21ca",
+    "logseq-og": "21cb",
+    "markdown-preview": "21cc",
+    "orbit": "21cd",
+    "perplexity": "21ce",
+    "prisma-access-browser": "21cf",
+    "smallstepagent": "21d0",
+    "tauritavern": "21d1",
+    "termic": "21d2",
+    "vorssaint": "21d3",
+    "willow-voice": "21d4"
   }
 }
