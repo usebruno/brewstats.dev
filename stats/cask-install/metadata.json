@@ -1,5 +1,5 @@
 {
-  "nextId": 8661,
+  "nextId": 8683,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8661,6 +8661,28 @@
     "tauritavern": "21d1",
     "termic": "21d2",
     "vorssaint": "21d3",
-    "willow-voice": "21d4"
+    "willow-voice": "21d4",
+    "billy": "21d5",
+    "block-buzz": "21d6",
+    "cate": "21d7",
+    "changes": "21d8",
+    "claude-status-bar": "21d9",
+    "cleanmymac-cli": "21da",
+    "codexia": "21db",
+    "defold@alpha": "21dc",
+    "gamehub": "21dd",
+    "kero": "21de",
+    "linguax": "21df",
+    "moonfin": "21e0",
+    "neodisk": "21e1",
+    "neon-vision-editor": "21e2",
+    "onit-sidekick": "21e3",
+    "opendisplay": "21e4",
+    "pastebot@2": "21e5",
+    "qnapi": "21e6",
+    "retoswap": "21e7",
+    "roslynpad": "21e8",
+    "sessionwatcher": "21e9",
+    "whooing": "21ea"
   }
 }
