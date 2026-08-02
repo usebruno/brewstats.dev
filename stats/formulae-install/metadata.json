@@ -1,5 +1,5 @@
 {
-  "nextId": 10295,
+  "nextId": 10316,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10295,6 +10295,27 @@
     "vibepod": "2833",
     "virtiofsd": "2834",
     "wgsl-analyzer": "2835",
-    "xcode-offload": "2836"
+    "xcode-offload": "2836",
+    "app-dev-clean": "2837",
+    "colibri": "2838",
+    "construct": "2839",
+    "fanficfare": "283a",
+    "git-pkgs-brief": "283b",
+    "git-pkgs-forge": "283c",
+    "git-pkgs-proxy": "283d",
+    "gommitlint": "283e",
+    "grow": "283f",
+    "keyward": "2840",
+    "lazyrsync": "2841",
+    "lief-patchelf": "2842",
+    "mcpsnoop": "2843",
+    "noodle": "2844",
+    "seqwish": "2845",
+    "solod": "2846",
+    "treehouse": "2847",
+    "vole": "2848",
+    "wireproxy": "2849",
+    "worm-scraper": "284a",
+    "xfg": "284b"
   }
 }

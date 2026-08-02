@@ -1,5 +1,5 @@
 {
-  "nextId": 8683,
+  "nextId": 8702,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8683,6 +8683,25 @@
     "retoswap": "21e7",
     "roslynpad": "21e8",
     "sessionwatcher": "21e9",
-    "whooing": "21ea"
+    "whooing": "21ea",
+    "airsync": "21eb",
+    "bettercmdtab@beta": "21ec",
+    "cmtrace-open": "21ed",
+    "degr": "21ee",
+    "font-luciole": "21ef",
+    "lm-studio-bionic": "21f0",
+    "luna-secondary": "21f1",
+    "meetingrecorder": "21f2",
+    "mend": "21f3",
+    "phosphene": "21f4",
+    "radicle-desktop": "21f5",
+    "redot": "21f6",
+    "redot-engine": "21f7",
+    "sidebarfavorites": "21f8",
+    "spacejump": "21f9",
+    "tight-studio": "21fa",
+    "unity-cli": "21fb",
+    "unity-hub@beta": "21fc",
+    "vulkan-sdk": "21fd"
   }
 }
