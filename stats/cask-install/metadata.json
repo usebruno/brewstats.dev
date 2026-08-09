@@ -1,5 +1,5 @@
 {
-  "nextId": 8702,
+  "nextId": 8731,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8702,6 +8702,35 @@
     "tight-studio": "21fa",
     "unity-cli": "21fb",
     "unity-hub@beta": "21fc",
-    "vulkan-sdk": "21fd"
+    "vulkan-sdk": "21fd",
+    "android-cli": "21fe",
+    "canario": "21ff",
+    "canario@beta": "2200",
+    "caskhub": "2201",
+    "commserv": "2202",
+    "diversion": "2203",
+    "diversion-app": "2204",
+    "douyin-webcast-mate": "2205",
+    "dynotable": "2206",
+    "esphome-device-builder": "2207",
+    "fbreader2": "2208",
+    "font-annotationmono-nerd-font": "2209",
+    "font-googlesanscode-nerd-font": "220a",
+    "font-nexon-bazzi": "220b",
+    "font-nexon-lv1-gothic": "220c",
+    "font-nexon-lv2-gothic": "220d",
+    "font-nexon-maplestory": "220e",
+    "font-pengli-wenkai": "220f",
+    "gimp2": "2210",
+    "input": "2211",
+    "kiro-crew": "2212",
+    "kirocrew": "2213",
+    "nowen-note": "2214",
+    "realvnc-connect-viewer": "2215",
+    "seam": "2216",
+    "sina-finance": "2217",
+    "speakup": "2218",
+    "tickernotch": "2219",
+    "work-louder-input": "221a"
   }
 }
