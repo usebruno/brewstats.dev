@@ -1,5 +1,5 @@
 {
-  "nextId": 8731,
+  "nextId": 8755,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8731,6 +8731,30 @@
     "sina-finance": "2217",
     "speakup": "2218",
     "tickernotch": "2219",
-    "work-louder-input": "221a"
+    "work-louder-input": "221a",
+    "anarlog": "221b",
+    "axolotl-launcher": "221c",
+    "ds4-control": "221d",
+    "eve-online": "221e",
+    "font-jetendard": "221f",
+    "font-nexon-football-gothic": "2220",
+    "font-nexon-kart-gothic": "2221",
+    "glean": "2222",
+    "grok-bot": "2223",
+    "headroom": "2224",
+    "muse-code": "2225",
+    "owlocr": "2226",
+    "petdex": "2227",
+    "proof": "2228",
+    "sentry": "2229",
+    "sentry-cli": "222a",
+    "soundbase": "222b",
+    "space-rabbit": "222c",
+    "subtitle-edit": "222d",
+    "textream": "222e",
+    "transmission-remote": "222f",
+    "voxelwall": "2230",
+    "warp-agent-cli": "2231",
+    "zls@0.15.1": "2232"
   }
 }
