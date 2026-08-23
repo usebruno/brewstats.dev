@@ -1,5 +1,5 @@
 {
-  "nextId": 8755,
+  "nextId": 8778,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8755,6 +8755,29 @@
     "transmission-remote": "222f",
     "voxelwall": "2230",
     "warp-agent-cli": "2231",
-    "zls@0.15.1": "2232"
+    "zls@0.15.1": "2232",
+    "bb": "2233",
+    "crew-tower": "2234",
+    "deepseek-harness": "2235",
+    "diskfreevault": "2236",
+    "easydmg": "2237",
+    "extrabar": "2238",
+    "font-case-office-code-pro": "2239",
+    "font-suite": "223a",
+    "gamemaker@beta": "223b",
+    "gamemaker@lts": "223c",
+    "gamemaker@lts2026": "223d",
+    "ghost-downloader": "223e",
+    "keyty": "223f",
+    "lokalbot": "2240",
+    "monet": "2241",
+    "mongrel": "2242",
+    "motrix@beta": "2243",
+    "nexus-shell": "2244",
+    "openemu-silicon": "2245",
+    "skills-manager": "2246",
+    "soloist": "2247",
+    "thoughtdag": "2248",
+    "unsloth-desktop": "2249"
   }
 }
