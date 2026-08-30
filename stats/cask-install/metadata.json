@@ -1,5 +1,5 @@
 {
-  "nextId": 8778,
+  "nextId": 8804,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8778,6 +8778,32 @@
     "skills-manager": "2246",
     "soloist": "2247",
     "thoughtdag": "2248",
-    "unsloth-desktop": "2249"
+    "unsloth-desktop": "2249",
+    "afterglow": "224a",
+    "amethyst-nostr": "224b",
+    "android-performance-analyzer": "224c",
+    "arm-performix": "224d",
+    "atlas-app": "224e",
+    "bifrost": "224f",
+    "bramble": "2250",
+    "channel-works": "2251",
+    "crisp": "2252",
+    "davit": "2253",
+    "droppy": "2254",
+    "easyeda-pro": "2255",
+    "font-paper-mono": "2256",
+    "homebrew-app": "2257",
+    "keychron-assistant": "2258",
+    "leigod": "2259",
+    "mac-performance-monitor": "225a",
+    "nativ": "225b",
+    "pixcake": "225c",
+    "quark-cloud-drive": "225d",
+    "quarkclouddrive": "225e",
+    "riverscript": "225f",
+    "tcp-viewer": "2260",
+    "triggerflo": "2261",
+    "unsloth": "2262",
+    "yapstack": "2263"
   }
 }
