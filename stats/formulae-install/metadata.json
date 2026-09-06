@@ -1,5 +1,5 @@
 {
-  "nextId": 10459,
+  "nextId": 10478,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10459,6 +10459,25 @@
     "taoup": "28d7",
     "taxonkit": "28d8",
     "tele": "28d9",
-    "tgrep": "28da"
+    "tgrep": "28da",
+    "beagle-imputation": "28db",
+    "brewman": "28dc",
+    "budget-tracker": "28dd",
+    "elasticmq": "28de",
+    "fastplong": "28df",
+    "fuse-ext2": "28e0",
+    "glci": "28e1",
+    "glimpse": "28e2",
+    "jcode": "28e3",
+    "lana": "28e4",
+    "linecast": "28e5",
+    "plink": "28e6",
+    "plink1": "28e7",
+    "robot-framework-robocop": "28e8",
+    "tailcat": "28e9",
+    "test-swift": "28ea",
+    "twitdl": "28eb",
+    "veto": "28ec",
+    "whatshap": "28ed"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "nextId": 8804,
+  "nextId": 8826,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8804,6 +8804,28 @@
     "tcp-viewer": "2260",
     "triggerflo": "2261",
     "unsloth": "2262",
-    "yapstack": "2263"
+    "yapstack": "2263",
+    "airstats": "2264",
+    "charlessoft-timetracker": "2265",
+    "chronicle": "2266",
+    "clawd-on-desk": "2267",
+    "db-pro": "2268",
+    "diskboard": "2269",
+    "dockdoor-pro": "226a",
+    "fender-universal-control": "226b",
+    "focuh": "226c",
+    "font-asap-sharp": "226d",
+    "font-nevermind": "226e",
+    "font-valley-sans": "226f",
+    "mangodisk": "2270",
+    "markviewer": "2271",
+    "p2p-kiwi": "2272",
+    "sjmcl": "2273",
+    "tabularis": "2274",
+    "terminal-browser": "2275",
+    "token-monitor": "2276",
+    "tone3000": "2277",
+    "vernier-graphical-analysis": "2278",
+    "waku": "2279"
   }
 }
