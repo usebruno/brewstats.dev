@@ -1,5 +1,5 @@
 {
-  "nextId": 8826,
+  "nextId": 8830,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8826,6 +8826,10 @@
     "token-monitor": "2276",
     "tone3000": "2277",
     "vernier-graphical-analysis": "2278",
-    "waku": "2279"
+    "waku": "2279",
+    "makehuman": "227a",
+    "open-science": "227b",
+    "workbuddy-cn": "227c",
+    "zentty": "227d"
   }
 }

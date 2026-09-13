@@ -1,5 +1,5 @@
 {
-  "nextId": 10478,
+  "nextId": 10480,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10478,6 +10478,8 @@
     "test-swift": "28ea",
     "twitdl": "28eb",
     "veto": "28ec",
-    "whatshap": "28ed"
+    "whatshap": "28ed",
+    "forgejo-runner": "28ee",
+    "pnpm@11": "28ef"
   }
 }
