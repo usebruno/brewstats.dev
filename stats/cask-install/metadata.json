@@ -1,5 +1,5 @@
 {
-  "nextId": 8830,
+  "nextId": 8836,
   "apps": {
     "3316": "1df0",
     "7777": "0",
@@ -8830,6 +8830,12 @@
     "makehuman": "227a",
     "open-science": "227b",
     "workbuddy-cn": "227c",
-    "zentty": "227d"
+    "zentty": "227d",
+    "bettermacwidgets": "227e",
+    "doubaoime": "227f",
+    "ollama-binary": "2280",
+    "snapline": "2281",
+    "telari": "2282",
+    "workbuddy-ai": "2283"
   }
 }
