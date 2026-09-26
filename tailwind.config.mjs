@@ -16,19 +16,19 @@ export default {
         brew: {
           // Dark mode
           dark: {
-            bg: '#1a1a1a',
-            card: '#242424',
-            border: '#333333',
+            bg: '#121212',
+            card: '#1b1b1c',
+            border: '#2c2c2e',
             text: '#e4e4e7',
-            muted: '#888888',
+            muted: '#8a8a8a',
           },
           // Light mode
           light: {
-            bg: '#f5f5f5',
+            bg: '#ffffff',
             card: '#ffffff',
-            border: '#e5e5e5',
+            border: '#e4e4e7',
             text: '#1a1a1a',
-            muted: '#666666',
+            muted: '#6b6b6b',
           },
         },
       },

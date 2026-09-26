@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="128" height="128" fill="none">
+  <defs>
+    <linearGradient id="logo-bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6b64b" />
+      <stop offset="1" stop-color="#c96f0f" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="9" fill="url(#logo-bg)" />
+  <!-- mug -->
+  <path d="M9 11.5h12a1.5 1.5 0 0 1 1.5 1.5v10a2.5 2.5 0 0 1-2.5 2.5H10A2.5 2.5 0 0 1 7.5 23V13A1.5 1.5 0 0 1 9 11.5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" />
+  <path d="M22.5 15h1.75a2.25 2.25 0 0 1 0 4.5H22.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+  <!-- foam -->
+  <circle cx="10.5" cy="10" r="2.1" fill="#fff" />
+  <circle cx="15" cy="8.6" r="2.6" fill="#fff" />
+  <circle cx="19.75" cy="10" r="2.1" fill="#fff" />
+  <!-- rising bars -->
+  <rect x="10.25" y="19" width="2.5" height="4" rx="0.75" fill="#fff" />
+  <rect x="13.75" y="16.5" width="2.5" height="6.5" rx="0.75" fill="#fff" />
+  <rect x="17.25" y="14" width="2.5" height="9" rx="0.75" fill="#fff" />
+</svg>

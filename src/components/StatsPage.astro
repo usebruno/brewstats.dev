@@ -8,16 +8,18 @@ const { type } = Astro.props;
 const config = {
   casks: {
     title: 'Brewstats - Homebrew Cask Install Trends',
-    heading: 'Compare Homebrew Casks',
-    subtitle: 'Track and compare installation trends for macOS apps',
-    placeholder: 'Search for apps... (e.g. bruno, cursor, 1password)',
+    heading: 'Casks',
+    subtitle: 'Install trends for macOS apps distributed via Homebrew',
+    placeholder: 'Search casks… e.g. bruno, cursor, 1password',
+    noun: 'casks',
     statsPath: '/stats/cask-install',
   },
   formulae: {
     title: 'Brewstats - Homebrew Formulae Install Trends',
-    heading: 'Compare Homebrew Formulae',
-    subtitle: 'Track and compare installation trends for CLI tools and libraries',
-    placeholder: 'Search for formulae... (e.g. node, python, git)',
+    heading: 'Formulae',
+    subtitle: 'Install trends for CLI tools and libraries',
+    placeholder: 'Search formulae… e.g. node, python, git',
+    noun: 'formulae',
     statsPath: '/stats/formulae-install',
   },
 };
@@ -25,182 +27,269 @@ const config = {
 const c = config[type];
 
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import brunoLogo from '../assets/bruno.png';
 ---
 
 <Layout title={c.title}>
   <div class="min-h-screen flex flex-col">
     <!-- Header -->
-    <header class="border-b border-brew-light-border dark:border-brew-dark-border">
-      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        <div class="flex items-center gap-6">
-          <a href="/" class="flex items-center gap-3">
-            <span class="text-2xl">🍺</span>
-            <h1 class="text-xl font-semibold tracking-tight">
-              brew<span class="text-primary dark:text-primary-dark">stats</span>
-            </h1>
+    <header class="sticky top-0 z-40 bg-brew-light-bg/80 dark:bg-brew-dark-bg/80 backdrop-blur">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4 min-w-0">
+          <a href="https://www.usebruno.com" target="_blank" rel="noopener" class="shrink-0 transition-opacity hover:opacity-80" title="Bruno" aria-label="Bruno">
+            <Image src={brunoLogo} alt="Bruno" width={28} height={28} densities={[1, 2, 3]} class="w-7 h-7" />
           </a>
-          <!-- Nav Tabs -->
-          <nav class="flex items-center gap-1 ml-2">
-            <a
-              href="/casks"
-              class:list={[
-                'px-3 py-1.5 rounded-md text-sm font-medium transition-colors',
-                type === 'casks'
-                  ? 'bg-primary dark:bg-primary-dark text-white dark:text-brew-dark-bg'
-                  : 'text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text',
-              ]}
-            >
-              Casks
-            </a>
-            <a
-              href="/formulae"
-              class:list={[
-                'px-3 py-1.5 rounded-md text-sm font-medium transition-colors',
-                type === 'formulae'
-                  ? 'bg-primary dark:bg-primary-dark text-white dark:text-brew-dark-bg'
-                  : 'text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text',
-              ]}
-            >
-              Formulae
-            </a>
+          <span class="text-brew-light-border dark:text-brew-dark-border text-xl font-light select-none -mx-1" aria-hidden="true">/</span>
+          <a href="/" class="group flex items-center shrink-0" aria-label="brewstats home">
+            <span class="wordmark">brew<span class="wordmark-accent">stats</span></span>
+          </a>
+          <nav class="flex items-center gap-1 sm:ml-3" aria-label="Package type">
+            <a href="/casks" class="nav-link" aria-current={type === 'casks' ? 'page' : undefined}>Casks</a>
+            <a href="/formulae" class="nav-link" aria-current={type === 'formulae' ? 'page' : undefined}>Formulae</a>
           </nav>
         </div>
-        <div class="flex items-center gap-4">
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="p-2 rounded-lg bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border
-                   hover:border-primary dark:hover:border-primary-dark transition-colors"
-            aria-label="Toggle theme"
-          >
-            <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        <div class="flex items-center gap-1">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+            <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            <svg class="w-4 h-4 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
-          <a
-            href="https://github.com"
-            target="_blank"
-            class="text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text transition-colors text-sm"
-          >
-            GitHub
+          <a href="https://github.com/usebruno/brewstats.dev" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub repository" title="GitHub">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.65 18.35.5 12 .5z" />
+            </svg>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 max-w-6xl mx-auto px-6 py-10 w-full">
-      <!-- Search Section -->
-      <section class="mb-10">
-        <h2 class="text-3xl font-bold mb-2">{c.heading}</h2>
-        <p class="text-brew-light-muted dark:text-brew-dark-muted mb-6">
-          {c.subtitle}
-        </p>
+    <!-- Main -->
+    <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-8 w-full">
+      <!-- Title + Search -->
+      <section class="mb-4">
+        <div class="flex items-baseline gap-3 mb-3">
+          <h1 class="text-xl font-semibold tracking-tight">Compare {c.heading}</h1>
+          <p class="text-sm text-brew-light-muted dark:text-brew-dark-muted hidden sm:block">{c.subtitle}</p>
+        </div>
 
-        <!-- Search Input -->
         <div class="relative">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brew-light-muted dark:text-brew-dark-muted pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+          </svg>
           <input
             type="text"
             id="search-input"
             placeholder={c.placeholder}
-            class="w-full bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border
-                   rounded-xl px-5 py-4 text-lg placeholder:text-brew-light-muted dark:placeholder:text-brew-dark-muted
-                   focus:outline-none focus:border-primary dark:focus:border-primary-dark transition-colors font-mono"
+            class="w-full h-10 bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border
+                   rounded-lg pl-9 pr-16 text-sm placeholder:text-brew-light-muted dark:placeholder:text-brew-dark-muted
+                   focus:outline-none focus:shadow-[0_1px_3px_rgba(0,0,0,0.05),0_2px_8px_rgba(0,0,0,0.04)] dark:focus:shadow-[0_2px_8px_rgba(0,0,0,0.3)]
+                   transition-shadow"
             autocomplete="off"
+            spellcheck="false"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="search-suggestions"
+            aria-autocomplete="list"
           />
+          <kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center h-5 px-1.5 rounded border border-brew-light-border dark:border-brew-dark-border text-[10px] font-mono text-brew-light-muted dark:text-brew-dark-muted pointer-events-none">/</kbd>
           <div
             id="search-suggestions"
-            class="absolute top-full left-0 right-0 mt-2 bg-brew-light-card dark:bg-brew-dark-card
+            role="listbox"
+            class="absolute top-full left-0 right-0 mt-1.5 bg-brew-light-card dark:bg-brew-dark-card
                    border border-brew-light-border dark:border-brew-dark-border
-                   rounded-xl overflow-hidden shadow-2xl hidden z-50 max-h-80 overflow-y-auto"
+                   rounded-lg shadow-lg hidden z-50 max-h-72 overflow-y-auto py-1"
           >
           </div>
         </div>
 
-        <!-- Selected Apps (Tags) -->
-        <div id="selected-apps" class="flex flex-wrap gap-2 mt-4">
-        </div>
+        <!-- Selected packages (chips act as the chart legend) -->
+        <div id="selected-apps" class="flex flex-wrap items-center gap-1.5 mt-2.5 empty:hidden"></div>
       </section>
 
-      <!-- Period Toggle & Chart Type -->
-      <section class="mb-6 flex items-center justify-between flex-wrap gap-4">
-        <!-- Period Toggle -->
-        <div class="inline-flex bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-lg p-1">
-          <button
-            data-period="30d"
-            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
-                   bg-primary dark:bg-primary-dark text-white dark:text-brew-dark-bg"
-          >
-            30 Days
-          </button>
-          <button
-            data-period="90d"
-            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
-                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
-          >
-            90 Days
-          </button>
-          <button
-            data-period="365d"
-            class="period-btn px-4 py-2 rounded-md text-sm font-medium transition-all
-                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
-          >
-            365 Days
-          </button>
-        </div>
-
-        <!-- Chart Type Toggle -->
-        <div class="inline-flex bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-lg p-1">
-          <button
-            data-chart-type="line"
-            class="chart-type-btn px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2
-                   bg-primary dark:bg-primary-dark text-white dark:text-brew-dark-bg"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4v16" />
-            </svg>
-            Line
-          </button>
-          <button
-            data-chart-type="pie"
-            class="chart-type-btn px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2
-                   text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-            </svg>
-            Pie
-          </button>
-        </div>
-      </section>
-
-      <!-- Chart Container -->
-      <section class="bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-2xl p-6 mb-8">
-        <div id="chart-container" class="h-[400px] w-full relative">
-          <div id="chart-placeholder" class="h-full flex items-center justify-center text-brew-light-muted dark:text-brew-dark-muted">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📊</div>
-              <p>Search for an app to see its install trends</p>
+      <!-- Results (chart + table); hidden until something is selected -->
+      <section id="results" class="hidden">
+        <!-- Toolbar -->
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+          <div class="flex items-center gap-2">
+            <div class="seg" role="group" aria-label="Period">
+              <button data-period="30d" class="seg-btn period-btn" aria-pressed="true">30d</button>
+              <button data-period="90d" class="seg-btn period-btn" aria-pressed="false">90d</button>
+              <button data-period="365d" class="seg-btn period-btn" aria-pressed="false">1y</button>
             </div>
+            <span id="period-hint" class="text-xs text-brew-light-muted dark:text-brew-dark-muted hidden md:inline"></span>
           </div>
-          <canvas id="chart" class="hidden"></canvas>
+          <div class="flex items-center gap-2">
+            <div class="seg" role="group" aria-label="Chart type">
+              <button data-chart-type="line" class="seg-btn chart-type-btn" aria-pressed="true" title="Trend over time">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8" /></svg>
+                Trend
+              </button>
+              <button data-chart-type="pie" class="seg-btn chart-type-btn" aria-pressed="false" title="Share of installs">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+                Share
+              </button>
+            </div>
+            <button id="copy-link" class="text-btn" title="Copy a shareable link">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+              <span>Copy link</span>
+            </button>
+            <button id="clear-all" class="text-btn" title="Remove all">Clear</button>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="card p-3 sm:p-4 mb-3">
+          <div id="chart-container" class="h-[300px] sm:h-[320px] w-full relative">
+            <canvas id="chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-xs text-brew-light-muted dark:text-brew-dark-muted border-b border-brew-light-border dark:border-brew-dark-border">
+                  <th class="th text-left">Package</th>
+                  <th class="th text-right" id="th-installs">Installs</th>
+                  <th class="th text-right" title="Change versus the previous weekly snapshot">vs. last week</th>
+                  <th class="th text-right" title="Change versus the snapshot from 4 weeks ago">vs. last month</th>
+                  <th class="th text-right hidden sm:table-cell">Peak</th>
+                  <th class="th text-right hidden sm:table-cell">Share</th>
+                  <th class="th text-right hidden md:table-cell">Trend</th>
+                </tr>
+              </thead>
+              <tbody id="stats-table"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
+      <!-- Empty state: discover packages -->
+      <section id="discover" class="hidden">
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="card">
+            <div class="flex items-center justify-between px-4 py-2.5 border-b border-brew-light-border dark:border-brew-dark-border">
+              <h2 class="text-sm font-medium">Most installed</h2>
+              <span class="text-xs text-brew-light-muted dark:text-brew-dark-muted">last 30 days</span>
+            </div>
+            <ol id="top-list" class="py-1"></ol>
+          </div>
+          <div class="card">
+            <div class="flex items-center justify-between px-4 py-2.5 border-b border-brew-light-border dark:border-brew-dark-border">
+              <h2 class="text-sm font-medium">Trending up</h2>
+              <span class="text-xs text-brew-light-muted dark:text-brew-dark-muted">vs. 4 weeks ago</span>
+            </div>
+            <ol id="trending-list" class="py-1"></ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <section id="loading" class="py-16 text-center text-sm text-brew-light-muted dark:text-brew-dark-muted">
+        Loading {c.noun}…
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-brew-light-border dark:border-brew-dark-border py-6">
-      <div class="max-w-6xl mx-auto px-6 text-center text-brew-light-muted dark:text-brew-dark-muted text-sm">
-        Data sourced from <a href="https://formulae.brew.sh/analytics/" class="text-primary dark:text-primary-dark hover:underline" target="_blank">Homebrew Analytics</a>
+    <footer class="py-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-2 text-xs text-brew-light-muted dark:text-brew-dark-muted">
+        <span>Data from <a href="https://formulae.brew.sh/analytics/" class="link" target="_blank" rel="noopener">Homebrew Analytics</a>, refreshed weekly<span id="data-updated"></span>.</span>
+        <span>Brewed by <a href="https://www.helloanoop.com" class="link" target="_blank" rel="noopener">Anoop</a> with ❤️ at <a href="https://www.usebruno.com" class="link" target="_blank" rel="noopener">Bruno</a></span>
       </div>
     </footer>
   </div>
 </Layout>
+
+<style is:global>
+  .seg {
+    @apply inline-flex items-center gap-0.5 p-0.5 rounded-lg bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border;
+  }
+  .seg-btn {
+    @apply inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[13px] font-medium leading-none transition-colors
+           text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text;
+  }
+  .seg-btn[aria-pressed="true"] {
+    @apply bg-primary text-white dark:bg-primary-dark dark:text-brew-dark-bg shadow-sm;
+  }
+  /* Wordmark: heavy, tight, with the icon's gradient carried into "stats". */
+  .wordmark {
+    @apply text-[18px] font-extrabold leading-none tracking-[-0.03em] text-brew-light-text dark:text-brew-dark-text;
+  }
+  .wordmark-accent {
+    background-image: linear-gradient(135deg, #f6b64b 0%, #d37f17 55%, #c96f0f 100%);
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .dark .wordmark-accent {
+    background-image: linear-gradient(135deg, #ffd27a 0%, #e4ae49 55%, #d9962e 100%);
+  }
+  /* Header nav: text tabs with an amber underline marker, distinct from the pill controls below. */
+  .nav-link {
+    @apply relative inline-flex items-center h-14 px-2.5 text-sm font-medium transition-colors
+           text-brew-light-muted dark:text-brew-dark-muted hover:text-brew-light-text dark:hover:text-brew-dark-text;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-2.5 right-2.5 bottom-3.5 h-0.5 rounded-full bg-primary dark:bg-primary-dark
+           scale-x-0 origin-center transition-transform duration-200;
+  }
+  .nav-link:hover::after {
+    @apply scale-x-100 opacity-40;
+  }
+  .nav-link[aria-current="page"] {
+    @apply text-brew-light-text dark:text-brew-dark-text font-semibold;
+  }
+  .nav-link[aria-current="page"]::after {
+    @apply scale-x-100 opacity-100;
+  }
+  .icon-btn {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-md text-brew-light-muted dark:text-brew-dark-muted
+           hover:text-brew-light-text dark:hover:text-brew-dark-text hover:bg-black/[0.05] dark:hover:bg-white/[0.06] transition-colors;
+  }
+  .text-btn {
+    @apply inline-flex items-center gap-1.5 h-8 px-2.5 rounded-md text-[13px] font-medium text-brew-light-muted dark:text-brew-dark-muted
+           hover:text-brew-light-text dark:hover:text-brew-dark-text hover:bg-black/[0.05] dark:hover:bg-white/[0.06] transition-colors;
+  }
+  .card {
+    @apply bg-brew-light-card dark:bg-brew-dark-card border border-brew-light-border dark:border-brew-dark-border rounded-xl;
+  }
+  .link {
+    @apply text-primary dark:text-primary-dark hover:underline;
+  }
+  .th {
+    @apply px-4 py-2 font-medium whitespace-nowrap;
+  }
+  .td {
+    @apply px-4 py-2 whitespace-nowrap;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 h-7 pl-2 pr-1 rounded-md border text-[13px] font-mono
+           bg-brew-light-card dark:bg-brew-dark-card border-brew-light-border dark:border-brew-dark-border;
+  }
+  .chip-remove {
+    @apply inline-flex items-center justify-center w-5 h-5 rounded text-brew-light-muted dark:text-brew-dark-muted
+           hover:text-brew-light-text dark:hover:text-brew-dark-text hover:bg-brew-light-border dark:hover:bg-brew-dark-border transition-colors;
+  }
+  .suggestion {
+    @apply w-full px-3 py-2 text-left text-sm flex items-center justify-between gap-3 transition-colors;
+  }
+  .suggestion[aria-selected="true"], .suggestion:hover {
+    @apply bg-black/[0.04] dark:bg-brew-dark-border;
+  }
+  .discover-row {
+    @apply w-full flex items-center gap-3 px-4 py-1.5 text-sm text-left hover:bg-black/[0.04] dark:hover:bg-brew-dark-border transition-colors;
+  }
+  .delta-up { @apply text-emerald-600 dark:text-emerald-400; }
+  .delta-down { @apply text-rose-600 dark:text-rose-400; }
+  .delta-flat { @apply text-brew-light-muted dark:text-brew-dark-muted; }
+</style>
 
 <script define:vars={{ statsPath: c.statsPath }}>
   window.__STATS_PATH__ = statsPath;
@@ -209,62 +298,70 @@ import Layout from '../layouts/Layout.astro';
 <script>
   import { Chart, registerables } from 'chart.js';
 
-  // Register Chart.js components
   Chart.register(...registerables);
 
-  // Stats base path from server-rendered config
   const STATS_PATH = (window as any).__STATS_PATH__;
-
-  // App colors for chart lines
+  const MAX_APPS = 8;
+  const MONTH_LOOKBACK = 4;
   const PRIMARY_LIGHT = '#d37f17';
   const PRIMARY_DARK = '#e4ae49';
 
-  // State
-  let statsData: Record<string, any> = {};
-  let currentPeriod = '30d';
-  let currentChartType: 'line' | 'pie' = 'line';
+  type Period = '30d' | '90d' | '365d';
+  type ChartType = 'line' | 'pie';
+  interface PeriodData { lastUpdated: string; dates: string[]; apps: Record<string, number[]> }
+
+  // ---- State -----------------------------------------------------------------
+  const statsData: Partial<Record<Period, PeriodData>> = {};
+  let currentPeriod: Period = '30d';
+  let currentChartType: ChartType = 'line';
   let selectedApps: string[] = [];
   let chart: Chart | null = null;
   let allAppNames: string[] = [];
   let isDarkMode = document.documentElement.classList.contains('dark');
+  let highlightedIndex = -1;
 
   const CHART_COLORS = [
-    isDarkMode ? PRIMARY_DARK : PRIMARY_LIGHT, // primary
-    '#3b82f6', // blue
-    '#10b981', // emerald
-    '#ef4444', // red
-    '#8b5cf6', // violet
-    '#ec4899', // pink
-    '#06b6d4', // cyan
-    '#f97316', // orange
+    isDarkMode ? PRIMARY_DARK : PRIMARY_LIGHT,
+    '#3b82f6', '#10b981', '#f43f5e', '#8b5cf6', '#06b6d4', '#ec4899', '#84cc16',
   ];
+  const PERIOD_LABEL: Record<Period, string> = { '30d': '30 days', '90d': '90 days', '365d': '365 days' };
 
-  // DOM Elements
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
-  const searchSuggestions = document.getElementById('search-suggestions')!;
-  const selectedAppsContainer = document.getElementById('selected-apps')!;
-  const chartCanvas = document.getElementById('chart') as HTMLCanvasElement;
-  const chartPlaceholder = document.getElementById('chart-placeholder')!;
-  const periodButtons = document.querySelectorAll('.period-btn');
-  const chartTypeButtons = document.querySelectorAll('.chart-type-btn');
-  const themeToggle = document.getElementById('theme-toggle')!;
+  // ---- DOM -------------------------------------------------------------------
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const searchInput = $<HTMLInputElement>('search-input');
+  const searchSuggestions = $('search-suggestions');
+  const selectedAppsContainer = $('selected-apps');
+  const chartCanvas = $<HTMLCanvasElement>('chart');
+  const resultsSection = $('results');
+  const discoverSection = $('discover');
+  const loadingSection = $('loading');
+  const statsTable = $('stats-table');
+  const topList = $('top-list');
+  const trendingList = $('trending-list');
+  const periodHint = $('period-hint');
+  const thInstalls = $('th-installs');
+  const dataUpdated = $('data-updated');
+  const periodButtons = document.querySelectorAll<HTMLButtonElement>('.period-btn');
+  const chartTypeButtons = document.querySelectorAll<HTMLButtonElement>('.chart-type-btn');
 
-  // Setup theme toggle immediately (don't wait for data to load)
-  themeToggle.addEventListener('click', () => {
+  // ---- Theme -----------------------------------------------------------------
+  $('theme-toggle').addEventListener('click', () => {
     isDarkMode = !isDarkMode;
     document.documentElement.classList.toggle('dark', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     CHART_COLORS[0] = isDarkMode ? PRIMARY_DARK : PRIMARY_LIGHT;
     renderSelectedApps();
-    updateChartTheme();
+    renderTable();
+    updateChart();
   });
 
-  // URL query param helpers
-  function getUrlParams(): { apps: string[], period: string | null, chart: string | null } {
+  // ---- URL state -------------------------------------------------------------
+  function readUrl() {
     const params = new URLSearchParams(window.location.search);
-    const apps = params.get('apps');
+    // `apps` is the legacy name; still honoured so older shared links keep working.
+    const packages = params.get('packages') ?? params.get('apps');
     return {
-      apps: apps ? apps.split(',').filter(a => a.trim()) : [],
+      apps: packages ? packages.split(',').map(a => a.trim()).filter(Boolean) : [],
       period: params.get('period'),
       chart: params.get('chart'),
     };
@@ -272,99 +369,103 @@ import Layout from '../layouts/Layout.astro';
 
   function updateUrl() {
     const url = new URL(window.location.href);
-
-    // Apps
-    if (selectedApps.length > 0) {
-      url.searchParams.set('apps', selectedApps.join(','));
-    } else {
-      url.searchParams.delete('apps');
-    }
-
-    // Period (only set if not default)
-    if (currentPeriod !== '30d') {
-      url.searchParams.set('period', currentPeriod);
-    } else {
-      url.searchParams.delete('period');
-    }
-
-    // Chart type (only set if not default)
-    if (currentChartType !== 'line') {
-      url.searchParams.set('chart', currentChartType);
-    } else {
-      url.searchParams.delete('chart');
-    }
-
+    url.searchParams.delete('apps');
+    if (selectedApps.length) url.searchParams.set('packages', selectedApps.join(','));
+    else url.searchParams.delete('packages');
+    if (currentPeriod !== '30d') url.searchParams.set('period', currentPeriod);
+    else url.searchParams.delete('period');
+    if (currentChartType !== 'line') url.searchParams.set('chart', currentChartType);
+    else url.searchParams.delete('chart');
     window.history.replaceState({}, '', url.toString());
   }
 
-  // Initialize
+  // ---- Formatting helpers ----------------------------------------------------
+  function formatNumber(n: number): string {
+    const trim = (x: number, d: number) => x.toFixed(d).replace(/\.0$/, '');
+    if (n >= 1_000_000) return trim(n / 1_000_000, n >= 10_000_000 ? 0 : 1) + 'M';
+    if (n >= 10_000) return Math.round(n / 1000) + 'K';
+    if (n >= 1000) return trim(n / 1000, 1) + 'K';
+    return String(n);
+  }
+
+  function formatFull(n: number): string {
+    return n.toLocaleString('en-US');
+  }
+
+  function formatDate(iso: string, withYear = false): string {
+    const d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', ...(withYear ? { year: 'numeric' } : {}) });
+  }
+
+  function pctChange(from: number, to: number): number | null {
+    if (!from) return null;
+    return ((to - from) / from) * 100;
+  }
+
+  function deltaHtml(pct: number | null, abs?: number): string {
+    if (pct === null || !isFinite(pct)) return `<span class="delta-flat">–</span>`;
+    const cls = pct > 0.05 ? 'delta-up' : pct < -0.05 ? 'delta-down' : 'delta-flat';
+    const arrow = pct > 0.05 ? '▲' : pct < -0.05 ? '▼' : '';
+    const absPart = abs !== undefined ? `<span class="delta-flat ml-1 hidden lg:inline">${abs > 0 ? '+' : ''}${formatNumber(Math.abs(abs)) === String(Math.abs(abs)) ? abs : (abs < 0 ? '-' : '') + formatNumber(Math.abs(abs))}</span>` : '';
+    return `<span class="${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>${absPart}`;
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]!));
+  }
+
+  function sparklineSvg(values: number[], color: string): string {
+    const w = 72, h = 20, pad = 1;
+    const pts = values.filter(v => typeof v === 'number');
+    if (pts.length < 2) return '';
+    const min = Math.min(...pts), max = Math.max(...pts);
+    const range = max - min || 1;
+    const step = (w - pad * 2) / (pts.length - 1);
+    const d = pts.map((v, i) => `${(pad + i * step).toFixed(1)},${(h - pad - ((v - min) / range) * (h - pad * 2)).toFixed(1)}`).join(' ');
+    return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="inline-block align-middle" aria-hidden="true"><polyline fill="none" stroke="${color}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="${d}"/></svg>`;
+  }
+
+  function colorFor(app: string): string {
+    return CHART_COLORS[selectedApps.indexOf(app) % CHART_COLORS.length];
+  }
+
+  // ---- Init ------------------------------------------------------------------
   async function init() {
-    // Get URL params first
-    const urlParams = getUrlParams();
+    const url = readUrl();
+    if (url.period && ['30d', '90d', '365d'].includes(url.period)) currentPeriod = url.period as Period;
+    if (url.chart && ['line', 'pie'].includes(url.chart)) currentChartType = url.chart as ChartType;
+    syncToggles();
 
-    // Restore period from URL (before loading data)
-    if (urlParams.period && ['30d', '90d', '365d'].includes(urlParams.period)) {
-      currentPeriod = urlParams.period;
-      // Update period button styles
-      periodButtons.forEach(btn => {
-        const btnPeriod = (btn as HTMLElement).dataset.period;
-        if (btnPeriod === currentPeriod) {
-          btn.classList.add('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-          btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-        } else {
-          btn.classList.remove('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-          btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-        }
-      });
-    }
-
-    // Restore chart type from URL
-    if (urlParams.chart && ['line', 'pie'].includes(urlParams.chart)) {
-      currentChartType = urlParams.chart as 'line' | 'pie';
-      // Update chart type button styles
-      chartTypeButtons.forEach(btn => {
-        const btnType = (btn as HTMLElement).dataset.chartType;
-        if (btnType === currentChartType) {
-          btn.classList.add('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-          btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-        } else {
-          btn.classList.remove('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-          btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-        }
-      });
-    }
-
-    // Load initial data
     await loadPeriodData('30d');
-
-    // Extract all app names for search
-    allAppNames = Object.keys(statsData['30d']?.apps || {}).sort();
-
-    // Restore apps from URL query params
-    for (const app of urlParams.apps) {
-      if (allAppNames.includes(app) && !selectedApps.includes(app) && selectedApps.length < 8) {
-        selectedApps.push(app);
-      }
+    const base = statsData['30d'];
+    if (!base) {
+      loadingSection.textContent = 'Could not load stats. Please try again later.';
+      return;
     }
 
-    // If apps were restored, render them
-    if (selectedApps.length > 0) {
-      renderSelectedApps();
-      updateChart();
-  
+    allAppNames = Object.keys(base.apps).sort();
+    dataUpdated.textContent = ` · last update ${formatDate(base.lastUpdated, true)}`;
+
+    for (const app of url.apps) {
+      if (base.apps[app] && !selectedApps.includes(app) && selectedApps.length < MAX_APPS) selectedApps.push(app);
     }
 
-    // Preload other periods
+    renderDiscover(base);
+    loadingSection.classList.add('hidden');
+
+    if (currentPeriod !== '30d') await loadPeriodData(currentPeriod);
+    renderSelectedApps();
+    renderAll();
+
+    // Preload remaining periods in the background
     loadPeriodData('90d');
     loadPeriodData('365d');
 
-    // Setup event listeners
     setupEventListeners();
   }
 
-  async function loadPeriodData(period: string) {
+  async function loadPeriodData(period: Period) {
     if (statsData[period]) return;
-
     try {
       const response = await fetch(`${STATS_PATH}/${period}.json`);
       statsData[period] = await response.json();
@@ -373,212 +474,131 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  function getChartOptions(): any {
-    const gridColor = isDarkMode ? '#333333' : '#e5e5e5';
-    const textColor = isDarkMode ? '#888888' : '#666666';
-
-    return {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        mode: 'index',
-        intersect: false,
-      },
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-          labels: {
-            color: textColor,
-            font: {
-              family: 'DM Sans, system-ui, sans-serif',
-              size: 12,
-            },
-            usePointStyle: true,
-            pointStyle: 'circle',
-          },
-        },
-        tooltip: {
-          backgroundColor: isDarkMode ? '#242424' : '#ffffff',
-          titleColor: isDarkMode ? '#e4e4e7' : '#1a1a1a',
-          bodyColor: isDarkMode ? '#888888' : '#666666',
-          borderColor: gridColor,
-          borderWidth: 1,
-          padding: 12,
-          cornerRadius: 8,
-          titleFont: {
-            family: 'DM Sans, system-ui, sans-serif',
-            size: 14,
-            weight: '600',
-          },
-          bodyFont: {
-            family: 'JetBrains Mono, monospace',
-            size: 12,
-          },
-          callbacks: {
-            label: function(context: any) {
-              const value = context.parsed.y;
-              const formatted = value >= 1000 ? (value / 1000).toFixed(1) + 'K' : value;
-              return `${context.dataset.label}: ${formatted}`;
-            }
-          }
-        },
-      },
-      scales: {
-        x: {
-          grid: {
-            color: gridColor,
-            drawBorder: false,
-          },
-          ticks: {
-            color: textColor,
-            font: {
-              family: 'DM Sans, system-ui, sans-serif',
-              size: 11,
-            },
-            maxRotation: 0,
-            maxTicksLimit: 8,
-          },
-        },
-        y: {
-          grid: {
-            color: gridColor,
-            drawBorder: false,
-          },
-          ticks: {
-            color: textColor,
-            font: {
-              family: 'JetBrains Mono, monospace',
-              size: 11,
-            },
-            callback: function(value: number) {
-              if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
-              if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
-              return value;
-            }
-          },
-        },
-      },
-    };
-  }
-
-  function updateChartTheme() {
-    if (!chart) return;
-    chart.options = currentChartType === 'line' ? getChartOptions() : getPieChartOptions();
-    chart.update();
-  }
-
+  // ---- Events ----------------------------------------------------------------
   function setupEventListeners() {
-    // Search input
     searchInput.addEventListener('input', handleSearch);
     searchInput.addEventListener('focus', handleSearch);
     searchInput.addEventListener('keydown', handleSearchKeydown);
 
-    // Click outside to close suggestions
     document.addEventListener('click', (e) => {
-      if (!searchInput.contains(e.target as Node) && !searchSuggestions.contains(e.target as Node)) {
-        searchSuggestions.classList.add('hidden');
+      if (!searchInput.contains(e.target as Node) && !searchSuggestions.contains(e.target as Node)) closeSuggestions();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const target = e.target as HTMLElement;
+      const typing = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+      if ((e.key === '/' && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
       }
     });
 
-    // Period buttons
-    periodButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const period = (btn as HTMLElement).dataset.period!;
-        switchPeriod(period);
-      });
+    periodButtons.forEach(btn => btn.addEventListener('click', () => switchPeriod(btn.dataset.period as Period)));
+    chartTypeButtons.forEach(btn => btn.addEventListener('click', () => switchChartType(btn.dataset.chartType as ChartType)));
+
+    $('clear-all').addEventListener('click', () => {
+      selectedApps = [];
+      renderSelectedApps();
+      renderAll();
+      updateUrl();
+      searchInput.focus();
     });
 
-    // Chart type buttons
-    chartTypeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const chartType = (btn as HTMLElement).dataset.chartType as 'line' | 'pie';
-        switchChartType(chartType);
-      });
+    const copyBtn = $('copy-link');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const label = copyBtn.querySelector('span')!;
+        label.textContent = 'Copied';
+        setTimeout(() => (label.textContent = 'Copy link'), 1500);
+      } catch { /* clipboard unavailable */ }
     });
+
+    selectedAppsContainer.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-remove]');
+      if (btn) removeApp(btn.dataset.remove!);
+    });
+
+    for (const list of [topList, trendingList, statsTable, searchSuggestions]) {
+      list.addEventListener('click', (e) => {
+        const el = (e.target as HTMLElement).closest<HTMLElement>('[data-app]');
+        if (el && !el.hasAttribute('data-remove')) addApp(el.dataset.app!);
+      });
+    }
   }
 
-  function switchChartType(chartType: 'line' | 'pie') {
+  function syncToggles() {
+    periodButtons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.period === currentPeriod)));
+    chartTypeButtons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.chartType === currentChartType)));
+  }
+
+  async function switchPeriod(period: Period) {
+    currentPeriod = period;
+    syncToggles();
+    updateUrl();
+    if (!statsData[period]) await loadPeriodData(period);
+    renderAll();
+  }
+
+  function switchChartType(chartType: ChartType) {
     currentChartType = chartType;
-
-    // Update button styles
-    chartTypeButtons.forEach(btn => {
-      const btnType = (btn as HTMLElement).dataset.chartType;
-      if (btnType === chartType) {
-        btn.classList.add('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-        btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-      } else {
-        btn.classList.remove('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-        btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-      }
-    });
-
+    syncToggles();
+    updateHint();
     updateChart();
     updateUrl();
   }
 
+  // ---- Search ----------------------------------------------------------------
+  function closeSuggestions() {
+    searchSuggestions.classList.add('hidden');
+    searchInput.setAttribute('aria-expanded', 'false');
+    highlightedIndex = -1;
+  }
+
   function handleSearch() {
     const query = searchInput.value.toLowerCase().trim();
+    if (!query) return closeSuggestions();
 
-    if (!query) {
-      searchSuggestions.classList.add('hidden');
-      return;
-    }
-
-    // Filter apps matching query
-    const matches = allAppNames
-      .filter(name => name.toLowerCase().includes(query) && !selectedApps.includes(name))
+    const base = statsData['30d']!;
+    // Prefix matches first, then substring matches; both ordered by install count.
+    const scored = allAppNames
+      .filter(name => !selectedApps.includes(name) && name.includes(query))
+      .map(name => ({ name, prefix: name.startsWith(query) ? 0 : 1, count: latest(base.apps[name]) }))
+      .sort((a, b) => a.prefix - b.prefix || b.count - a.count)
       .slice(0, 10);
 
-    if (matches.length === 0) {
-      searchSuggestions.classList.add('hidden');
-      return;
-    }
+    if (!scored.length) return closeSuggestions();
 
-    // Render suggestions
-    highlightedIndex = -1;
-    searchSuggestions.innerHTML = matches.map(name => `
-      <button
-        class="w-full px-5 py-3 text-left hover:bg-brew-light-border dark:hover:bg-brew-dark-border transition-colors font-mono text-sm
-               flex items-center justify-between"
-        data-app="${name}"
-      >
-        <span>${highlightMatch(name, query)}</span>
-        <span class="text-brew-light-muted dark:text-brew-dark-muted text-xs">
-          ${formatNumber(getLatestCount(name))} installs
-        </span>
+    highlightedIndex = 0;
+    searchSuggestions.innerHTML = scored.map(({ name, count }, i) => `
+      <button class="suggestion" role="option" data-app="${escapeHtml(name)}" aria-selected="${i === 0}">
+        <span class="font-mono truncate">${highlightMatch(name, query)}</span>
+        <span class="text-xs text-brew-light-muted dark:text-brew-dark-muted shrink-0">${formatNumber(count)} <span class="hidden sm:inline">/ 30d</span></span>
       </button>
     `).join('');
 
-    // Add click handlers
-    searchSuggestions.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const app = (btn as HTMLElement).dataset.app!;
-        addApp(app);
-      });
-    });
-
     searchSuggestions.classList.remove('hidden');
+    searchInput.setAttribute('aria-expanded', 'true');
   }
 
-  let highlightedIndex = -1;
-
   function updateHighlight() {
-    const items = searchSuggestions.querySelectorAll('button');
-    items.forEach((btn, i) => {
-      if (i === highlightedIndex) {
-        btn.classList.add('bg-brew-light-border', 'dark:bg-brew-dark-border');
-      } else {
-        btn.classList.remove('bg-brew-light-border', 'dark:bg-brew-dark-border');
-      }
-    });
-    if (highlightedIndex >= 0 && items[highlightedIndex]) {
-      items[highlightedIndex].scrollIntoView({ block: 'nearest' });
-    }
+    const items = searchSuggestions.querySelectorAll<HTMLElement>('.suggestion');
+    items.forEach((btn, i) => btn.setAttribute('aria-selected', String(i === highlightedIndex)));
+    items[highlightedIndex]?.scrollIntoView({ block: 'nearest' });
   }
 
   function handleSearchKeydown(e: KeyboardEvent) {
-    const items = searchSuggestions.querySelectorAll('button');
+    if (e.key === 'Escape') {
+      closeSuggestions();
+      searchInput.blur();
+      return;
+    }
+    if (e.key === 'Backspace' && !searchInput.value && selectedApps.length) {
+      removeApp(selectedApps[selectedApps.length - 1]);
+      return;
+    }
+    const items = searchSuggestions.querySelectorAll<HTMLElement>('.suggestion');
     if (!items.length || searchSuggestions.classList.contains('hidden')) return;
 
     if (e.key === 'ArrowDown') {
@@ -591,272 +611,333 @@ import Layout from '../layouts/Layout.astro';
       updateHighlight();
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      const idx = highlightedIndex >= 0 ? highlightedIndex : 0;
-      const btn = items[idx];
-      if (btn) {
-        const app = (btn as HTMLElement).dataset.app!;
-        addApp(app);
-      }
-    } else if (e.key === 'Escape') {
-      searchSuggestions.classList.add('hidden');
-      highlightedIndex = -1;
+      const btn = items[highlightedIndex >= 0 ? highlightedIndex : 0];
+      if (btn) addApp(btn.dataset.app!);
     }
   }
 
   function highlightMatch(text: string, query: string): string {
-    const index = text.toLowerCase().indexOf(query.toLowerCase());
-    if (index === -1) return text;
-
-    return text.slice(0, index) +
-           `<span class="text-primary dark:text-primary-dark">${text.slice(index, index + query.length)}</span>` +
-           text.slice(index + query.length);
+    const index = text.toLowerCase().indexOf(query);
+    if (index === -1) return escapeHtml(text);
+    return escapeHtml(text.slice(0, index)) +
+      `<span class="text-primary dark:text-primary-dark font-medium">${escapeHtml(text.slice(index, index + query.length))}</span>` +
+      escapeHtml(text.slice(index + query.length));
   }
 
-  function getLatestCount(appName: string): number {
-    const data = statsData[currentPeriod];
-    if (!data?.apps?.[appName]) return 0;
-    const counts = data.apps[appName];
-    return counts[counts.length - 1] || 0;
-  }
-
-  function formatNumber(num: number): string {
-    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-    return num.toString();
+  // ---- Selection -------------------------------------------------------------
+  function latest(series?: number[]): number {
+    return series?.length ? series[series.length - 1] || 0 : 0;
   }
 
   function addApp(appName: string) {
-    if (selectedApps.includes(appName) || selectedApps.length >= 8) return;
-
+    if (selectedApps.includes(appName) || selectedApps.length >= MAX_APPS) return;
     selectedApps.push(appName);
     searchInput.value = '';
-    searchSuggestions.classList.add('hidden');
-
+    closeSuggestions();
     renderSelectedApps();
-    updateChart();
-
+    renderAll();
     updateUrl();
   }
 
   function removeApp(appName: string) {
     selectedApps = selectedApps.filter(a => a !== appName);
     renderSelectedApps();
-    updateChart();
-
+    renderAll();
     updateUrl();
   }
 
   function renderSelectedApps() {
-    selectedAppsContainer.innerHTML = selectedApps.map((app, index) => `
-      <span
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono"
-        style="background: ${CHART_COLORS[index % CHART_COLORS.length]}20;
-               border: 1px solid ${CHART_COLORS[index % CHART_COLORS.length]}40;
-               color: ${CHART_COLORS[index % CHART_COLORS.length]}"
-      >
-        ${app}
-        <button
-          class="hover:opacity-70 transition-opacity"
-          data-remove="${app}"
-        >
-          ✕
-        </button>
-      </span>
-    `).join('');
-
-    // Add remove handlers
-    selectedAppsContainer.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const app = (btn as HTMLElement).dataset.remove!;
-        removeApp(app);
-      });
-    });
+    selectedAppsContainer.innerHTML = selectedApps.map((app) => {
+      const color = colorFor(app);
+      return `
+        <span class="chip">
+          <span class="w-2 h-2 rounded-full shrink-0" style="background:${color}"></span>
+          <span>${escapeHtml(app)}</span>
+          <button class="chip-remove" data-remove="${escapeHtml(app)}" aria-label="Remove ${escapeHtml(app)}">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </span>`;
+    }).join('') + (selectedApps.length >= MAX_APPS
+      ? `<span class="text-xs text-brew-light-muted dark:text-brew-dark-muted ml-1">Max ${MAX_APPS} reached</span>` : '');
   }
 
-  function switchPeriod(period: string) {
-    currentPeriod = period;
-
-    // Update button styles
-    periodButtons.forEach(btn => {
-      const btnPeriod = (btn as HTMLElement).dataset.period;
-      if (btnPeriod === period) {
-        btn.classList.add('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-        btn.classList.remove('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-      } else {
-        btn.classList.remove('bg-primary', 'dark:bg-primary-dark', 'text-white', 'dark:text-brew-dark-bg');
-        btn.classList.add('text-brew-light-muted', 'dark:text-brew-dark-muted', 'hover:text-brew-light-text', 'dark:hover:text-brew-dark-text');
-      }
-    });
-
-    updateChart();
-
-    updateUrl();
-  }
-
-  function updateChart() {
-    if (selectedApps.length === 0) {
-      chartPlaceholder.classList.remove('hidden');
-      chartCanvas.classList.add('hidden');
-
-      // Destroy existing chart
-      if (chart) {
-        chart.destroy();
-        chart = null;
-      }
+  // ---- Rendering -------------------------------------------------------------
+  function renderAll() {
+    const hasSelection = selectedApps.length > 0;
+    resultsSection.classList.toggle('hidden', !hasSelection);
+    discoverSection.classList.toggle('hidden', hasSelection);
+    searchInput.placeholder = hasSelection ? 'Add another…' : searchInput.dataset.placeholder || searchInput.placeholder;
+    if (!searchInput.dataset.placeholder) searchInput.dataset.placeholder = searchInput.placeholder;
+    if (!hasSelection) {
+      if (chart) { chart.destroy(); chart = null; }
       return;
     }
+    updateChart();
+    renderTable();
+  }
 
-    chartPlaceholder.classList.add('hidden');
-    chartCanvas.classList.remove('hidden');
+  function updateHint() {
+    const window = PERIOD_LABEL[currentPeriod].replace(' days', '-day');
+    periodHint.textContent = currentChartType === 'line'
+      ? `Each point is the rolling ${window} install count, sampled weekly.`
+      : `Share of the latest ${window} install counts across the selected packages.`;
+  }
 
+  function renderTable() {
     const data = statsData[currentPeriod];
     if (!data) return;
 
-    // Destroy existing chart before creating new one
-    if (chart) {
-      chart.destroy();
-    }
+    const rows = selectedApps.map(app => {
+      const series = data.apps[app] || [];
+      const last = latest(series);
+      const prev = series.length > 1 ? series[series.length - 2] : 0;
+      // Snapshots are weekly, so "last month" is four snapshots back.
+      const monthAgo = series.length > MONTH_LOOKBACK ? series[series.length - 1 - MONTH_LOOKBACK] : 0;
+      return { app, series, last, prev, monthAgo, peak: Math.max(0, ...series), color: colorFor(app) };
+    }).sort((a, b) => b.last - a.last);
 
-    if (currentChartType === 'line') {
-      // Build datasets for line chart
-      const datasets = selectedApps.map((appName, index) => {
-        const appData = data.apps[appName];
-        const color = CHART_COLORS[index % CHART_COLORS.length];
+    const total = rows.reduce((s, r) => s + r.last, 0);
 
-        return {
-          label: appName,
-          data: appData || [],
-          borderColor: color,
-          backgroundColor: color + '20',
-          borderWidth: 2,
-          pointRadius: 0,
-          pointHoverRadius: 6,
-          pointHoverBackgroundColor: color,
-          pointHoverBorderColor: isDarkMode ? '#242424' : '#ffffff',
-          pointHoverBorderWidth: 2,
-          tension: 0.3,
-          fill: false,
-        };
-      });
+    thInstalls.textContent = `Installs / ${PERIOD_LABEL[currentPeriod]}`;
+    updateHint();
 
-      // Create line chart
-      chart = new Chart(chartCanvas, {
-        type: 'line',
-        data: {
-          labels: data.dates,
-          datasets: datasets,
-        },
-        options: getChartOptions(),
-      });
-    } else {
-      // Build data for pie chart (using latest counts), sorted by count descending
-      const pieItems = selectedApps.map((appName, index) => {
-        const appData = data.apps[appName];
-        const latestCount = appData ? appData[appData.length - 1] || 0 : 0;
-        return {
-          name: appName,
-          count: latestCount,
-          color: CHART_COLORS[index % CHART_COLORS.length],
-        };
-      }).sort((a, b) => b.count - a.count);
-
-      // Create pie chart
-      chart = new Chart(chartCanvas, {
-        type: 'pie',
-        data: {
-          labels: pieItems.map(item => item.name),
-          datasets: [{
-            data: pieItems.map(item => item.count),
-            backgroundColor: pieItems.map(item => item.color),
-            borderColor: isDarkMode ? '#242424' : '#ffffff',
-            borderWidth: 2,
-            hoverOffset: 8,
-          }],
-        },
-        options: getPieChartOptions(),
-      });
-    }
+    statsTable.innerHTML = rows.map(r => `
+      <tr class="border-b last:border-b-0 border-brew-light-border dark:border-brew-dark-border">
+        <td class="td">
+          <span class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full shrink-0" style="background:${r.color}"></span>
+            <span class="font-mono">${escapeHtml(r.app)}</span>
+          </span>
+        </td>
+        <td class="td text-right font-mono tabular-nums" title="${formatFull(r.last)}">${formatNumber(r.last)}</td>
+        <td class="td text-right font-mono tabular-nums">${deltaHtml(pctChange(r.prev, r.last), r.last - r.prev)}</td>
+        <td class="td text-right font-mono tabular-nums">${deltaHtml(pctChange(r.monthAgo, r.last), r.last - r.monthAgo)}</td>
+        <td class="td text-right font-mono tabular-nums hidden sm:table-cell" title="${formatFull(r.peak)}">${formatNumber(r.peak)}</td>
+        <td class="td text-right font-mono tabular-nums hidden sm:table-cell">${total ? ((r.last / total) * 100).toFixed(1) : '0.0'}%</td>
+        <td class="td text-right hidden md:table-cell">${sparklineSvg(r.series, r.color)}</td>
+      </tr>
+    `).join('');
   }
 
-  function getPieChartOptions(): any {
-    const textColor = isDarkMode ? '#e4e4e7' : '#1a1a1a';
-    const mutedColor = isDarkMode ? '#888888' : '#666666';
+  function renderDiscover(base: PeriodData) {
+    const entries = Object.entries(base.apps);
+    const top = entries
+      .map(([name, s]) => ({ name, count: latest(s) }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 8);
 
+    const lookback = Math.min(4, base.dates.length - 1);
+    const trending = entries
+      .map(([name, s]) => {
+        const now = latest(s);
+        const before = s[s.length - 1 - lookback] || 0;
+        return { name, count: now, before, pct: pctChange(before, now) };
+      })
+      // Require an established baseline so brand-new packages don't dominate with 10000%+ jumps.
+      .filter(e => e.count >= 1000 && e.before >= 500 && e.pct !== null && e.pct > 0)
+      .sort((a, b) => (b.pct as number) - (a.pct as number))
+      .slice(0, 8);
+
+    topList.innerHTML = top.map((e, i) => `
+      <li><button class="discover-row" data-app="${escapeHtml(e.name)}">
+        <span class="w-4 text-xs text-brew-light-muted dark:text-brew-dark-muted tabular-nums">${i + 1}</span>
+        <span class="font-mono truncate flex-1">${escapeHtml(e.name)}</span>
+        <span class="font-mono text-xs tabular-nums text-brew-light-muted dark:text-brew-dark-muted">${formatNumber(e.count)}</span>
+      </button></li>`).join('');
+
+    trendingList.innerHTML = trending.length ? trending.map((e, i) => `
+      <li><button class="discover-row" data-app="${escapeHtml(e.name)}">
+        <span class="w-4 text-xs text-brew-light-muted dark:text-brew-dark-muted tabular-nums">${i + 1}</span>
+        <span class="font-mono truncate flex-1">${escapeHtml(e.name)}</span>
+        <span class="font-mono text-xs tabular-nums text-brew-light-muted dark:text-brew-dark-muted">${formatNumber(e.count)}</span>
+        <span class="font-mono text-xs tabular-nums delta-up w-16 text-right whitespace-nowrap">▲ ${(e.pct as number).toFixed(0)}%</span>
+      </button></li>`).join('')
+      : `<li class="px-4 py-3 text-xs text-brew-light-muted dark:text-brew-dark-muted">Not enough history yet.</li>`;
+  }
+
+  // ---- Chart -----------------------------------------------------------------
+  function chartTheme() {
+    return {
+      grid: isDarkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+      tick: isDarkMode ? '#8a8a8a' : '#6b6b6b',
+      tooltipBg: isDarkMode ? '#1f1f1f' : '#ffffff',
+      tooltipBorder: isDarkMode ? '#333333' : '#e5e5e5',
+      text: isDarkMode ? '#e4e4e7' : '#1a1a1a',
+      muted: isDarkMode ? '#8a8a8a' : '#6b6b6b',
+      surface: isDarkMode ? '#1f1f1f' : '#ffffff',
+    };
+  }
+
+  function tooltipBase() {
+    const t = chartTheme();
+    return {
+      backgroundColor: t.tooltipBg,
+      titleColor: t.text,
+      bodyColor: t.text,
+      borderColor: t.tooltipBorder,
+      borderWidth: 1,
+      padding: 10,
+      cornerRadius: 8,
+      boxPadding: 4,
+      usePointStyle: true,
+      titleFont: { family: 'DM Sans, system-ui, sans-serif', size: 12, weight: '600' },
+      bodyFont: { family: 'JetBrains Mono, monospace', size: 12 },
+    };
+  }
+
+  function lineOptions(dates: string[]): any {
+    const t = chartTheme();
+    const spansYears = dates.length > 1 && dates[0].slice(0, 4) !== dates[dates.length - 1].slice(0, 4);
+    const last = dates.length - 1;
+    const step = Math.max(1, Math.ceil(dates.length / 11));
     return {
       responsive: true,
       maintainAspectRatio: false,
+      animation: { duration: 250 },
+      interaction: { mode: 'index', intersect: false },
+      layout: { padding: { top: 8, right: 8 } },
       plugins: {
-        legend: {
-          display: true,
-          position: 'right',
-          labels: {
-            color: textColor,
-            font: {
-              family: 'JetBrains Mono, monospace',
-              size: 12,
-            },
-            usePointStyle: true,
-            pointStyle: 'circle',
-            padding: 16,
-            generateLabels: function(chart: any) {
-              const data = chart.data;
-              if (data.labels.length && data.datasets.length) {
-                const dataset = data.datasets[0];
-                const total = dataset.data.reduce((a: number, b: number) => a + b, 0);
-                const labelColor = document.documentElement.classList.contains('dark') ? '#e4e4e7' : '#1a1a1a';
-
-                return data.labels.map((label: string, i: number) => {
-                  const value = dataset.data[i];
-                  const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0';
-                  const formatted = value >= 1000000 ? (value / 1000000).toFixed(1) + 'M' : value >= 1000 ? (value / 1000).toFixed(1) + 'K' : value;
-
-                  return {
-                    text: `${label} — ${formatted} (${percentage}%)`,
-                    fillStyle: dataset.backgroundColor[i],
-                    strokeStyle: dataset.borderColor,
-                    lineWidth: dataset.borderWidth,
-                    fontColor: labelColor,
-                    hidden: false,
-                    index: i,
-                    pointStyle: 'circle',
-                  };
-                });
-              }
-              return [];
-            },
+        legend: { display: false },
+        tooltip: {
+          ...tooltipBase(),
+          itemSort: (a: any, b: any) => b.parsed.y - a.parsed.y,
+          callbacks: {
+            title: (items: any[]) => items.length ? formatDate(dates[items[0].dataIndex], true) : '',
+            label: (ctx: any) => ` ${ctx.dataset.label}  ${formatFull(ctx.parsed.y)}`,
           },
         },
-        tooltip: {
-          backgroundColor: isDarkMode ? '#242424' : '#ffffff',
-          titleColor: textColor,
-          bodyColor: mutedColor,
-          borderColor: isDarkMode ? '#333333' : '#e5e5e5',
-          borderWidth: 1,
-          padding: 12,
-          cornerRadius: 8,
-          titleFont: {
-            family: 'DM Sans, system-ui, sans-serif',
-            size: 14,
-            weight: '600',
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          border: { color: t.grid },
+          ticks: {
+            color: t.tick,
+            font: { family: 'DM Sans, system-ui, sans-serif', size: 11 },
+            maxRotation: 0,
+            // Space labels evenly counting back from the latest sample, so the most recent date always shows.
+            autoSkip: false,
+            callback: (_: any, i: number) => (last - i) % step === 0 ? formatDate(dates[i], spansYears) : null,
           },
-          bodyFont: {
-            family: 'JetBrains Mono, monospace',
-            size: 12,
+        },
+        y: {
+          beginAtZero: true,
+          grid: { color: t.grid },
+          border: { display: false },
+          ticks: {
+            color: t.tick,
+            font: { family: 'JetBrains Mono, monospace', size: 11 },
+            maxTicksLimit: 6,
+            callback: (v: number) => formatNumber(v),
           },
-          callbacks: {
-            label: function(context: any) {
-              const value = context.parsed;
-              const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0);
-              const percentage = ((value / total) * 100).toFixed(1);
-              const formatted = value >= 1000 ? (value / 1000).toFixed(1) + 'K' : value;
-              return `${formatted} installs (${percentage}%)`;
-            }
-          }
         },
       },
     };
   }
 
-  // Start the app
+  function pieOptions(): any {
+    const t = chartTheme();
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 250 },
+      cutout: '58%',
+      layout: { padding: 8 },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            color: t.text,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            padding: 12,
+            font: { family: 'JetBrains Mono, monospace', size: 12 },
+            generateLabels: (ch: any) => {
+              const ds = ch.data.datasets[0];
+              const total = ds.data.reduce((a: number, b: number) => a + b, 0);
+              return ch.data.labels.map((label: string, i: number) => ({
+                text: `${label}  ${total ? ((ds.data[i] / total) * 100).toFixed(1) : '0.0'}%`,
+                fillStyle: ds.backgroundColor[i],
+                strokeStyle: ds.backgroundColor[i],
+                fontColor: t.text,
+                hidden: false,
+                index: i,
+                pointStyle: 'circle',
+              }));
+            },
+          },
+        },
+        tooltip: {
+          ...tooltipBase(),
+          callbacks: {
+            label: (ctx: any) => {
+              const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0);
+              return ` ${formatFull(ctx.parsed)} installs (${total ? ((ctx.parsed / total) * 100).toFixed(1) : '0.0'}%)`;
+            },
+          },
+        },
+      },
+    };
+  }
+
+  function updateChart() {
+    if (!selectedApps.length) return;
+    const data = statsData[currentPeriod];
+    if (!data) return;
+
+    if (chart) chart.destroy();
+    const t = chartTheme();
+
+    if (currentChartType === 'line') {
+      const datasets = selectedApps.map((app, i) => {
+        const color = CHART_COLORS[i % CHART_COLORS.length];
+        return {
+          label: app,
+          data: data.apps[app] || [],
+          borderColor: color,
+          backgroundColor: color,
+          borderWidth: 2,
+          // Mark every weekly sample so it's clear the line is built from many points.
+          pointRadius: 2.5,
+          pointBackgroundColor: t.surface,
+          pointBorderColor: color,
+          pointBorderWidth: 1.5,
+          pointHitRadius: 12,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: color,
+          pointHoverBorderColor: t.surface,
+          pointHoverBorderWidth: 2,
+          tension: 0.2,
+          fill: false,
+        };
+      });
+      chart = new Chart(chartCanvas, {
+        type: 'line',
+        data: { labels: data.dates, datasets },
+        options: lineOptions(data.dates),
+      });
+    } else {
+      const items = selectedApps
+        .map((app, i) => ({ name: app, count: latest(data.apps[app]), color: CHART_COLORS[i % CHART_COLORS.length] }))
+        .sort((a, b) => b.count - a.count);
+      chart = new Chart(chartCanvas, {
+        type: 'doughnut',
+        data: {
+          labels: items.map(i => i.name),
+          datasets: [{
+            data: items.map(i => i.count),
+            backgroundColor: items.map(i => i.color),
+            borderColor: t.surface,
+            borderWidth: 2,
+            hoverOffset: 6,
+          }],
+        },
+        options: pieOptions(),
+      });
+    }
+  }
+
   init();
 </script>
