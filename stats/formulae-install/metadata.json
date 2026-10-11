@@ -1,5 +1,5 @@
 {
-  "nextId": 10552,
+  "nextId": 10575,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10552,6 +10552,29 @@
     "tfswitch": "2934",
     "tunnelite": "2935",
     "vigolium": "2936",
-    "vortix": "2937"
+    "vortix": "2937",
+    "android-file-transfer-linux": "2938",
+    "cellpose": "2939",
+    "cymbal": "293a",
+    "dekit": "293b",
+    "encoding": "293c",
+    "ghdl-llvm": "293d",
+    "hifiasm": "293e",
+    "jprot": "293f",
+    "maki": "2940",
+    "mrdocs": "2941",
+    "mtop": "2942",
+    "openssl@3.6": "2943",
+    "packslip": "2944",
+    "scriptc": "2945",
+    "spice-vdagent": "2946",
+    "texres": "2947",
+    "threagile": "2948",
+    "threat-composer-ai": "2949",
+    "tinycbor": "294a",
+    "typdiff": "294b",
+    "uniterm": "294c",
+    "unixcw": "294d",
+    "y": "294e"
   }
 }
