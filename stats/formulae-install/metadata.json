@@ -1,5 +1,5 @@
 {
-  "nextId": 10614,
+  "nextId": 10635,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10614,6 +10614,27 @@
     "tsuzuri": "2972",
     "vectorcraft-cli": "2973",
     "wordcraft-cli": "2974",
-    "workerd": "2975"
+    "workerd": "2975",
+    "appthreat-vulnerability-db": "2976",
+    "arriba": "2977",
+    "autopilot": "2978",
+    "brlaser": "2979",
+    "buildkite": "297a",
+    "cozy": "297b",
+    "erpc": "297c",
+    "gitea-cli": "297d",
+    "gitea-importer": "297e",
+    "ignite-swift": "297f",
+    "jrl-cmakemodules": "2980",
+    "opencode-nanogpt": "2981",
+    "roborev": "2982",
+    "spdng": "2983",
+    "terrascope": "2984",
+    "test-rust-repo": "2985",
+    "tpcgen-cli": "2986",
+    "vstextract": "2987",
+    "worldmonitor": "2988",
+    "xfr": "2989",
+    "zvec-grep": "298a"
   }
 }
