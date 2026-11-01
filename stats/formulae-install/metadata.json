@@ -1,5 +1,5 @@
 {
-  "nextId": 10635,
+  "nextId": 10656,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10635,6 +10635,27 @@
     "vstextract": "2987",
     "worldmonitor": "2988",
     "xfr": "2989",
-    "zvec-grep": "298a"
+    "zvec-grep": "298a",
+    "agent-desktop": "298b",
+    "arm-optimized-routines": "298c",
+    "beszel": "298d",
+    "beszel-agent": "298e",
+    "blint": "298f",
+    "botfile": "2990",
+    "calcure": "2991",
+    "coralogix-cli": "2992",
+    "entire-cli": "2993",
+    "godu": "2994",
+    "hatchzip": "2995",
+    "hdf-cli": "2996",
+    "libmemcached-awesome": "2997",
+    "linux-boot-doctor": "2998",
+    "lovable-oj": "2999",
+    "rad-debugger": "299a",
+    "ryl": "299b",
+    "sbomqs": "299c",
+    "spidermonkey@140": "299d",
+    "upki": "299e",
+    "zmij": "299f"
   }
 }
