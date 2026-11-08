@@ -1,5 +1,5 @@
 {
-  "nextId": 10656,
+  "nextId": 10685,
   "apps": {
     "a2ps": "0",
     "a52dec": "1",
@@ -10656,6 +10656,35 @@
     "sbomqs": "299c",
     "spidermonkey@140": "299d",
     "upki": "299e",
-    "zmij": "299f"
+    "zmij": "299f",
+    "amcp": "29a0",
+    "bepinex": "29a1",
+    "cx": "29a2",
+    "doorstop": "29a3",
+    "erlang@22": "29a4",
+    "goda": "29a5",
+    "gridcraft-cli": "29a6",
+    "hoppr": "29a7",
+    "jellyroller": "29a8",
+    "libdogleg": "29a9",
+    "libghostty-vt": "29aa",
+    "libgovirt": "29ab",
+    "libpkl": "29ac",
+    "lightcraft-cli": "29ad",
+    "mlxtop": "29ae",
+    "mrbuild": "29af",
+    "mrcal": "29b0",
+    "mrgingham": "29b1",
+    "muvm": "29b2",
+    "nelm@1": "29b3",
+    "opencode@1": "29b4",
+    "openexr@2": "29b5",
+    "percona-xtrabackup@8.4": "29b6",
+    "rquickshare": "29b7",
+    "safe-chain": "29b8",
+    "sbom-tools": "29b9",
+    "stirmake": "29ba",
+    "vnlog": "29bb",
+    "xberg": "29bc"
   }
 }
